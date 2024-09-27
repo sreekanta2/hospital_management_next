@@ -13,6 +13,7 @@ export default function Banner() {
           src={image}
           className="w-full absolute md:bottom-14  dark:hidden hidden lg:block  "
           alt="background image"
+          priority={true}
         />
         <div className=" absolute px-4   mt-20     w-full flex flex-col items-center    space-y-4">
           <div className="flex flex-col items-center  leading-4">

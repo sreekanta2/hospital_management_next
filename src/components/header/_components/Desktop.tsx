@@ -22,9 +22,16 @@ import CustomButton from "@/components/CustomButton";
 export default function Desktop() {
   return (
     <div className="grid grid-cols-6 items-center  justify-center">
-      <div className="col-span-1">
-        <Image src={logo} alt="Logo" className="w-36" />
-      </div>
+      <Link href="/" className="col-span-1">
+        <Image
+          src={logo}
+          alt="Logo"
+          className="w-36"
+          priority={true}
+          width={500}
+          height={300}
+        />
+      </Link>
       <div className="flex col-span-4 justify-center gap-2">
         {headerLinks.map((link) =>
           !link.sublinks ? (

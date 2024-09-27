@@ -1,5 +1,6 @@
 import React from "react";
+import PatientsLayout from "../_components/PatientsLayout";
 
 export default function page() {
-  return <div>page</div>;
+  return <PatientsLayout>page</PatientsLayout>;
 }

@@ -10,7 +10,13 @@ export default function ReviewCard() {
         <div className="flex flex-col md:flex-row md:justify-between">
           <div className="  py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex md:flex-col lg:flex-row gap-4 items-center">
             <div className="w-14 h-14   rounded-full border flex items-center justify-center overflow-hidden">
-              <Image src={profile} width={500} height={300} alt="icon" />
+              <Image
+                src={profile}
+                width={500}
+                height={300}
+                alt="icon"
+                priority={true}
+              />
             </div>
             <div>
               <h1 className="text-gray-700">Daren </h1>
@@ -33,7 +39,13 @@ export default function ReviewCard() {
         <div className="flex flex-col md:flex-row md:justify-between">
           <div className=" font-medium text-gray-900 whitespace-nowrap dark:text-white flex md:flex-col lg:flex-row gap-4 items-center">
             <div className="w-14 h-14    rounded-full border flex items-center justify-center overflow-hidden">
-              <Image src={profile} width={500} height={300} alt="icon" />
+              <Image
+                src={profile}
+                width={500}
+                height={300}
+                alt="icon"
+                priority={true}
+              />
             </div>
             <div>
               <h1 className="text-gray-700">Daren </h1>

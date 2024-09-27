@@ -11,6 +11,7 @@ export default function ServiceCard() {
           src={serviceImage1}
           alt="Service Image"
           className="w-full h-auto object-contain max-w-[50px]"
+          priority={true}
         />
       </CardContent>
     </Card>

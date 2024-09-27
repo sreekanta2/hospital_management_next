@@ -26,6 +26,7 @@ export default function GraphStatus({ item }: GraphStatusProps) {
                   alt="heat image"
                   width={500}
                   height={300}
+                  priority={true}
                 />
               </div>
               <span className="text-sm">Last Update 2d</span>

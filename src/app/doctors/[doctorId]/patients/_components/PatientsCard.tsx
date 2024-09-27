@@ -7,7 +7,13 @@ export default function PatientCard() {
     <div className="border rounded-md    ">
       <div className="p-6 flex flex-col items-center justify-center  ">
         <div className="rounded-full w-24  overflow-hidden    ring-gray-100">
-          <Image src={profile} alt="background image" />
+          <Image
+            src={profile}
+            alt="background image"
+            priority={true}
+            width={500}
+            height={300}
+          />
         </div>
         <div className="text-gray-600 text-center flex flex-col gap-1 py-2">
           <Link href="/patient-profile/appointment" className="font-semibold ">

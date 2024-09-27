@@ -27,6 +27,7 @@ export default function Mobile() {
             className="w-64"
             width={500}
             height={300}
+            priority={true}
           />
         </div>
 

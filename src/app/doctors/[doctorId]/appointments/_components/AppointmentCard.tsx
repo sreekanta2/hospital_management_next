@@ -12,6 +12,7 @@ export default function AppointmentsCard() {
           height={100}
           className="relative z-10 rounded-md"
           alt="background image"
+          priority={true}
         />
 
         <div>

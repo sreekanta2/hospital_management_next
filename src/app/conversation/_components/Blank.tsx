@@ -5,7 +5,12 @@ export default function Blank() {
   return (
     <div className="relative w-full overflow-y-hiddeen h-[calc(100vh_-_64px)] flex flex-col items-center justify-center text-gray-700 p-5 space-y-5">
       <div>
-        <Image src={blankImage} alt="Nothing here!" layout="responsive" />
+        <Image
+          src={blankImage}
+          alt="Nothing here!"
+          layout="responsive"
+          priority={true}
+        />
       </div>
       <div className="text-center">
         No messages selected! Select an user from left sidebar to view all

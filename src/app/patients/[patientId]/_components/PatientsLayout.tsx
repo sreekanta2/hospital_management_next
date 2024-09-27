@@ -1,7 +1,7 @@
 import SideBarLinks from "@/components/SidebarLinks";
-import { patientSidebarOptions } from "@/constant";
 
 import { ReactNode } from "react";
+import { patientSidebarOptions } from "../../_components/constant";
 
 export default function PatientsLayout({
   children, // This will include the child pages (appointments, reviews, etc.)
@@ -9,8 +9,8 @@ export default function PatientsLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="grid   grid-cols-1  md:grid-cols-4 gap-4 ">
-      <div className="col-span-1">
+    <div className="grid   grid-cols-1  lg:grid-cols-4 md:gap-x-4  ">
+      <div className="col-span-1 px-4 ">
         <SideBarLinks options={patientSidebarOptions} baseUrl="patients" />
       </div>
       <main className="col-span-3 px-4">{children}</main>

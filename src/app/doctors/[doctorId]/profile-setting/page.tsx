@@ -38,6 +38,7 @@ export default function ProfileSetting() {
                 height={120}
                 className="relative z-10"
                 alt="background image"
+                priority={true}
               />
             </div>
             <div className="flex  flex-col gap-4  w-full">

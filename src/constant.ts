@@ -155,47 +155,6 @@ export const doctorSidebarOptions = [
   { name: "Logout", href: "/" },
 ];
 
-export const patientSidebarOptions = [
-  {
-    name: "Dashboard",
-    href: "dashboard",
-  },
-
-  {
-    name: "Messages",
-    href: "/conversation",
-  },
-  {
-    name: "Account",
-    href: "account",
-  },
-  {
-    name: "Order",
-    href: "orders",
-  },
-
-  {
-    name: "Add Medical Records",
-    href: "addmedical-records",
-  },
-  {
-    name: "Medical Details",
-    href: "medical-details",
-  },
-  {
-    name: "Profile Setting",
-    href: "profile-setting",
-  },
-
-  {
-    name: "Change Password",
-    href: "change-password",
-  },
-  {
-    name: "Logout",
-    href: "/",
-  },
-];
 export const speciality = [
   { label: "Neurology", value: "Neurology" },
   { label: "Ophthalmology", value: "Ophthalmology" },

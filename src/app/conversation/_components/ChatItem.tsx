@@ -24,6 +24,7 @@ export default function ChatItem({
         height={20}
         src={avatar}
         alt={name}
+        priority={true}
       />
       <div className="w-full pb-2 hidden md:block">
         <div className="flex justify-between">

@@ -11,6 +11,7 @@ export default function HeartRateStatus() {
           className=""
           width={40}
           height={40}
+          priority={true}
         />
       </div>
       <h1 className="font-bold text-gray-600">Heart Rate</h1>

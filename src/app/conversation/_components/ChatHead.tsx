@@ -14,6 +14,7 @@ export default function ChatHead({ avatar, name }: ChatHead) {
           width={200}
           height={200}
           alt={name}
+          priority={true}
         />
         <span className="absolute bottom-[-25px] right-[-8px] text-[80px] text-green-400">
           .

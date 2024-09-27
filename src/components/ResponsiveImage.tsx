@@ -17,18 +17,17 @@ export default function ResponsiveImage({
   height,
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   className = "",
-  priority = false,
+  priority = true, // Set priority to true if this is an LCP image
 }: ResponsiveImageProps) {
   return (
     <Image
-      src={src} // Now supports both imported images and URLs
+      src={src} // Supports both imported images and URLs
       alt={alt}
-      width={width || 500}
-      height={height || 300}
-      sizes={sizes}
+      width={width} // Set width
+      height={height} // Set height
+      sizes={sizes} // Responsive sizes for different screen sizes
       className={className}
-      priority={priority}
-      layout="responsive" // Automatically adjusts based on width and height
+      priority={priority} // Set priority for above-the-fold content
       quality={75} // Adjust image quality if necessary (default is 75)
     />
   );
