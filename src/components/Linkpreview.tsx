@@ -67,29 +67,65 @@ const LinkPreview = async ({ url }: LinkPreviewProps) => {
   }
 
   return (
-    <Link
-      href={url}
-      target="_blank"
-      className="text-black  w-[50%] h-[200px] cursor-pointer flex items-center bg-[#f3f3f3] gap-3 text-left border-white border-[2px]"
+    <div
       style={{
         textDecoration: "none",
+        color: "black",
+        width: "50%",
+        height: "200px",
+        cursor: "pointer",
+        display: "flex", // Ensure display is set to flex
+        alignItems: "center",
+        backgroundColor: "#f3f3f3",
+        gap: "12px",
+        textAlign: "left",
+        border: "2px solid white",
       }}
     >
-      <div className="object-cover h-full">
+      <div style={{ flexShrink: 0, objectFit: "cover", height: "100%" }}>
         <img
-          src={data.image}
+          src="https://www.creowis.com/"
           alt="Link Preview"
-          className="object-cover h-full w-[340px] m-0"
+          width="340" // Specify width
+          height="200" // Specify height
+          style={{
+            objectFit: "cover",
+            height: "100%",
+            width: "340px",
+            margin: "0",
+          }}
         />
       </div>
-      <div className="p-4 w-[60%]">
-        <h3 className="text-3xl font-bold leading-[2rem] mb-2 ">
-          {data.title}
+      <div style={{ padding: "16px", width: "60%" }}>
+        <h3
+          style={{
+            fontSize: "1.875rem",
+            fontWeight: "bold",
+            lineHeight: "2rem",
+            marginBottom: "8px",
+          }}
+        >
+          titlegggggg ggggggg gggggggg gggggg
         </h3>
-        <p className="text-base line-clamp-3 mb-2">{data.description}</p>
-        <span className="mt-3 opacity-50 text-xs">{url}</span>
+        <p
+          style={{
+            fontSize: "1rem",
+            display: "-webkit-box",
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            marginBottom: "8px",
+          }}
+        >
+          datadescription
+        </p>
+        <span
+          style={{ marginTop: "12px", opacity: "0.5", fontSize: "0.75rem" }}
+        >
+          lll
+        </span>
       </div>
-    </Link>
+    </div>
   );
 };
 

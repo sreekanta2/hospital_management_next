@@ -171,16 +171,16 @@ export const patientSidebarOptions = [
   },
   {
     name: "Order",
-    href: "order",
+    href: "orders",
   },
 
   {
     name: "Add Medical Records",
-    href: "addmedical-record",
+    href: "addmedical-records",
   },
   {
     name: "Medical Details",
-    href: "patient-medical-details",
+    href: "medical-details",
   },
   {
     name: "Profile Setting",

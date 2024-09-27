@@ -7,19 +7,21 @@ import {
   PathValue,
 } from "react-hook-form";
 import { Input } from "./ui/input";
+import { FormMessage } from "./ui/form";
 
 // Define the props for the InputField component
 interface InputFieldProps<T extends FieldValues> {
   name: Path<T>; // Path to a key in the form values object
-  control: Control<T>;
+  control?: Control<T>;
   defaultValue?: PathValue<T, Path<T>>; // Default value should match the field's type
   label?: string;
   placeholder?: string;
+
   type?: string; // Allow different input types like text, email, password, etc.
   rules?: Record<string, any>;
 }
 
-export default function InputField<T extends FieldValues>({
+export default function FormInput<T extends FieldValues>({
   name,
   control,
   defaultValue,
@@ -27,7 +29,8 @@ export default function InputField<T extends FieldValues>({
   placeholder,
   type = "text", // Default to text input
   rules,
-}: InputFieldProps<T>) {
+}: // Default to false if not specified
+InputFieldProps<T>) {
   return (
     <div>
       {label && (
@@ -55,9 +58,7 @@ export default function InputField<T extends FieldValues>({
             />
 
             {/* Error Message */}
-            {error && (
-              <p className="mt-1 text-sm text-red-500">{error.message}</p>
-            )}
+            <FormMessage />
           </>
         )}
       />

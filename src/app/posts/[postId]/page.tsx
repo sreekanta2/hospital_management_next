@@ -39,7 +39,7 @@ export default async function Page({ params }: PageProps) {
       <p>Title: {data.title}</p>
       <p>Completed: {data.completed ? "Yes" : "No"}</p>
       <div className="h-screen w-full flex justify-center items-center">
-        <LinkPreview url={"https://www.creowis.com/"} />
+        {/* <LinkPreview url={"https://www.creowis.com/"} /> */}
       </div>
     </div>
   );

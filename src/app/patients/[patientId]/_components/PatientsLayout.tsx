@@ -9,11 +9,11 @@ export default function PatientsLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="grid   grid-cols-1  md:grid-cols-4 gap-4">
+    <div className="grid   grid-cols-1  md:grid-cols-4 gap-4 ">
       <div className="col-span-1">
         <SideBarLinks options={patientSidebarOptions} baseUrl="patients" />
       </div>
-      <main className="col-span-3">{children}</main>
+      <main className="col-span-3 px-4">{children}</main>
     </div>
   );
 }
