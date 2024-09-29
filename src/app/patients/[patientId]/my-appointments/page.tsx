@@ -5,6 +5,8 @@ import { Clock, Eye, MessageCircle, Search, Video } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Avatar from "@/components/Avatar";
 import UpcomingContent from "./_components/UpcomingContent";
+import CenclledAppintmentContent from "./_components/CenclledAppintmentContent";
+import CompletedApointmentcontent from "./_components/CompletedApointmentcontent";
 
 export default function page() {
   return (
@@ -50,6 +52,8 @@ export default function page() {
           {/* appointmnet */}
 
           <UpcomingContent />
+          <CenclledAppintmentContent />
+          <CompletedApointmentcontent />
         </Tabs>
       </section>
     </PatientsLayout>

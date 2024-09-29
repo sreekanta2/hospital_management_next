@@ -1,11 +1,11 @@
+import { TabsContent } from "@/components/ui/tabs";
 import React from "react";
 import AppointmentCard from "./AppointmentCard";
-import { TabsContent } from "@/components/ui/tabs";
 import PaginationComponent from "@/components/PaginationComponent";
 
-export default function UpcomingContent() {
+export default function CenclledAppintmentContent() {
   return (
-    <TabsContent value="upcoming">
+    <TabsContent value="cenclled">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
         <AppointmentCard />
         <AppointmentCard />

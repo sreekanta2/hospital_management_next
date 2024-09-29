@@ -1,11 +1,11 @@
+import { TabsContent } from "@radix-ui/react-tabs";
 import React from "react";
 import AppointmentCard from "./AppointmentCard";
-import { TabsContent } from "@/components/ui/tabs";
 import PaginationComponent from "@/components/PaginationComponent";
 
-export default function UpcomingContent() {
+export default function CompletedApointmentcontent() {
   return (
-    <TabsContent value="upcoming">
+    <TabsContent value="completed">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
         <AppointmentCard />
         <AppointmentCard />

@@ -3,11 +3,11 @@ import successImg from "@/public/assets/success.png";
 import CustomLink from "@/components/CustomLink";
 import Image from "next/image";
 import StarRating from "@/components/StarRating";
-import { Dot } from "lucide-react";
+import { Dot, LocateFixedIcon, MapPin } from "lucide-react";
 
 export default function DoctorCard() {
   return (
-    <div className=" bg-white rounded-md shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] ">
+    <div className=" bg-white rounded-md shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-w-96 ">
       <div className="p-2">
         <div className="overflow-hidden">
           <div className="w-full h-56 overflow-hidden rounded-t-lg">
@@ -48,15 +48,15 @@ export default function DoctorCard() {
           <div className="text-sm text-gray-500 ">
             <p className="flex     mt-3">
               <span>
-                <i className="ri-map-pin-fill  "></i>
+                <MapPin size={15} />
               </span>
               <span>Florida,USA</span>
             </p>
-            <p className="flex  ">
+            <p className="flex  items-center ">
               <span>
-                <i className="ri-time-fill "></i>
+                <MapPin size={15} />
               </span>
-              <span>Available obn fir,22 Mar</span>
+              <span>Available on fir,22 Mar</span>
             </p>
             <p className="flex    ">
               <span>
@@ -65,10 +65,10 @@ export default function DoctorCard() {
               <span>$300-500</span>
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className=" grid grid-cols-2 gap-2">
             <CustomLink
               href="/booking"
-              className="bg-[#0de0fe] w-full py-2 mt-4 px-4 text-sm text-bold rounded text-white hover:bg-[#0b90a1]"
+              className="bg-[#0de0fe] w-full py-2  px-4 text-sm text-bold rounded text-white hover:bg-[#0b90a1] text-center"
             >
               Book Now
             </CustomLink>
@@ -77,7 +77,7 @@ export default function DoctorCard() {
               <Dot size={40} />
               <span>Avaliable</span>
             </div> */}
-            <div className="w-full flex items-center   text-center   mt-4   text-sm font-bold rounded bg-red-200  text-red-500 transition-transform duration-500 hover:transition-delay-200">
+            <div className="w-full flex items-center   text-center     text-sm font-bold rounded bg-red-200  text-red-500 transition-transform duration-500 hover:transition-delay-200">
               <Dot size={40} />
               <span>unavaliable</span>
             </div>

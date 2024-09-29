@@ -32,14 +32,7 @@ export default function AppointmentCard() {
           className="border dark:border dark:border-gray-700 p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white cursor-pointer"
           size={40}
         />
-        <div
-          className="border dark:border  h-10  w-10 dark:border-gray-700 p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white cursor-pointer flex items-center justify-center
-                
-                
-                
-                
-                "
-        >
+        <div className="border dark:border  h-10  w-10 dark:border-gray-700 p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white cursor-pointer flex items-center justify-center">
           X
         </div>
       </div>
