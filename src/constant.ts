@@ -22,35 +22,34 @@ export const headerLinkss = [
   { title: "Contact", href: "/contact" },
   { title: "Mess ", href: "/mess" },
 ];
-export const headerLinks = [
+export const headerLinks = (id: string) => [
   {
     title: "Doctor",
     submenu: true,
     sublinks: [
       {
         title: "Dashboard",
-        href: "/doctor/dashboard",
+        href: `/doctor/${id}/dashboard`,
       },
       {
         title: "Appointments",
-        href: "/doctor/appointments",
+        href: `/doctor/${id}/appointments`,
       },
       {
         title: "My Patients",
-        href: "/doctor/patients",
+        href: `/doctor/${id}/patients`,
       },
       {
         title: "Schedule Timings",
-        href: "/doctor/schedule",
+        href: `/doctor/${id}/schedule`,
       },
-
       {
         title: "Accounts",
-        href: "/doctor/accounts",
+        href: `/doctor/${id}/accounts`,
       },
       {
         title: "Reviews",
-        href: "/doctor/reviews",
+        href: `/doctor/${id}/reviews`,
       },
       {
         title: "Messages",
@@ -58,15 +57,15 @@ export const headerLinks = [
       },
       {
         title: "Profile Setting",
-        href: "/doctor/profile-setting",
+        href: `/doctor/${id}/profile-setting`,
       },
       {
         title: "Social Media",
-        href: "/doctor/social-media",
+        href: `/doctor/${id}/social-media`,
       },
       {
         title: "Change Password",
-        href: "/doctor/change-password",
+        href: `/doctor/${id}/change-password`,
       },
       {
         title: "Logout",
@@ -80,37 +79,35 @@ export const headerLinks = [
     sublinks: [
       {
         title: "Dashboard",
-        href: "/patient/dashboard",
+        href: `/patient/${id}/dashboard`,
       },
       {
         title: "Favorite",
-        href: "/patient/favorite",
+        href: `/patient/${id}/favorite`,
       },
-
       {
         title: "Messages",
         href: "/conversation",
       },
       {
         title: "Account",
-        href: "/patient/patient-account",
+        href: `/patient/${id}/accounts`,
       },
       {
         title: "Order",
-        href: "/patient/patient-order",
+        href: `/patient/${id}/orders`,
       },
       {
         title: "Add Medical Records",
-        href: "/patient/patient-add-medical-records",
+        href: `/patient/${id}/addmedical-records`,
       },
-
       {
         title: "Profile Setting",
-        href: "/patient/patient-profile-setting",
+        href: `/patient/${id}/profile-setting`,
       },
       {
         title: "Change Password",
-        href: "/patient/patient-change-password",
+        href: `/patient/${id}/change-password`,
       },
       {
         title: "Logout",
@@ -125,11 +122,10 @@ export const headerLinks = [
     sublinks: [
       {
         title: "Pharmacy",
-        href: "/pharmacy",
+        href: `/pharmacy`,
       },
-
-      { title: "Pharmacy Search", href: "/pharmacy-search" },
-      { title: "Products", href: "/pharmacy/products" },
+      { title: "Pharmacy Search", href: `/pharmacy-search` },
+      { title: "Products", href: `/pharmacy/products` },
       { title: "Chat", href: "/conversation" },
       { title: "Payment Success", href: "/" },
       { title: "Pharmacy Register", href: "/" },

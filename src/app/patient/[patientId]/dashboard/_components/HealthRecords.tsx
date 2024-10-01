@@ -189,46 +189,16 @@ export default function HealthRecords() {
           <hr />
 
           <div className="flex flex-col gap-2 mt-4">
-            <div>
-              <div className="flex justify-between items-center">
-                <Avatar className="rounded-md" />
-                <div className="h-10 w-10 cursor-pointer hover:bg-blue-500 hover:text-white rounded-full border flex justify-center items-center">
-                  <ClipboardPlus />
+            {[1, 2, 3, 4, 5].map((fv) => (
+              <div key={fv}>
+                <div className="flex justify-between items-center">
+                  <Avatar className="rounded-md" />
+                  <div className="h-10 w-10 cursor-pointer hover:bg-blue-500 hover:text-white rounded-full border flex justify-center items-center">
+                    <ClipboardPlus size={18} />
+                  </div>
                 </div>
               </div>
-            </div>{" "}
-            <div>
-              <div className="flex justify-between items-center">
-                <Avatar className="rounded-md" />
-                <div className="h-10 w-10 cursor-pointer hover:bg-blue-500 hover:text-white rounded-full border flex justify-center items-center">
-                  <ClipboardPlus />
-                </div>
-              </div>
-            </div>{" "}
-            <div>
-              <div className="flex justify-between items-center">
-                <Avatar className="rounded-md" />
-                <div className="h-10 w-10 cursor-pointer hover:bg-blue-500 hover:text-white rounded-full border flex justify-center items-center">
-                  <ClipboardPlus />
-                </div>
-              </div>
-            </div>{" "}
-            <div>
-              <div className="flex justify-between items-center">
-                <Avatar className="rounded-md" />
-                <div className="h-10 w-10 cursor-pointer hover:bg-blue-500 hover:text-white rounded-full border flex justify-center items-center">
-                  <ClipboardPlus />
-                </div>
-              </div>
-            </div>{" "}
-            <div>
-              <div className="flex justify-between items-center">
-                <Avatar className="rounded-md" />
-                <div className="h-10 w-10 cursor-pointer hover:bg-blue-500 hover:text-white rounded-full border flex justify-center items-center">
-                  <ClipboardPlus />
-                </div>
-              </div>
-            </div>{" "}
+            ))}
           </div>
         </div>
       </div>

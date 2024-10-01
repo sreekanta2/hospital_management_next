@@ -15,8 +15,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logo from "@/assets/logo.png";
-import { Button } from "@/components/ui/button";
 import { Lock, UserRound } from "lucide-react";
+
+const links = headerLinks("1");
 
 import CustomButton from "@/components/CustomButton";
 export default function Desktop() {
@@ -33,42 +34,43 @@ export default function Desktop() {
         />
       </Link>
       <div className="flex col-span-4 justify-center gap-2">
-        {headerLinks.map((link) =>
-          !link.sublinks ? (
-            <NavigationMenu key={link.title}>
-              <NavigationMenuList>
-                <NavigationMenuItem key={link.title}>
-                  <Link href={link.href} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      {link.title}
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          ) : (
-            <NavigationMenu key={link.title}>
-              <NavigationMenuList>
-                <NavigationMenuItem key={link.title}>
-                  <NavigationMenuTrigger>{link.title}</NavigationMenuTrigger>
-                  {link.sublinks && (
-                    <NavigationMenuContent>
-                      <ul className="p-2 flex flex-col w-52 group-hover:md:block hover:md:block">
-                        {link.sublinks.map((sublink) => (
-                          <ListItem key={sublink.title} href={sublink.href}>
-                            {sublink.title}
-                          </ListItem>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  )}
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          )
-        )}
+        {links &&
+          links.map((link) =>
+            !link.sublinks ? (
+              <NavigationMenu key={link.title}>
+                <NavigationMenuList>
+                  <NavigationMenuItem key={link.title}>
+                    <Link href={link.href} legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        {link.title}
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            ) : (
+              <NavigationMenu key={link.title}>
+                <NavigationMenuList>
+                  <NavigationMenuItem key={link.title}>
+                    <NavigationMenuTrigger>{link.title}</NavigationMenuTrigger>
+                    {link.sublinks && (
+                      <NavigationMenuContent>
+                        <ul className="p-2 flex flex-col w-52 group-hover:md:block hover:md:block">
+                          {link.sublinks.map((sublink) => (
+                            <ListItem key={sublink.title} href={sublink.href}>
+                              {sublink.title}
+                            </ListItem>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    )}
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            )
+          )}
       </div>
 
       <div className="col-span-1 flex justify-self-end items-center gap-x-4">

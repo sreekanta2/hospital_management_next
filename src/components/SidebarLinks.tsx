@@ -22,14 +22,15 @@ export default function SideBarLinks({ baseUrl, options }: SideBarLinksProps) {
 
   return (
     <div className="col-span-1 border rounded-md w-full mx-auto mb-10 lg:mb-0">
-      <div className="w-44 mx-auto">
+      <div className="w-full flex justify-center ">
         <Link href="/" className="my-4">
           <ResponsiveImage
             src={profileImage}
             alt="aidroo logo image"
-            width={500}
-            height={300}
-            className="rounded-full my-4"
+            width="150px"
+            height="150px"
+            className=" rounded-full "
+            priority={true}
           />
         </Link>
       </div>

@@ -10,14 +10,14 @@ export default function DoctorProfileStatus() {
         <div className="flex  justify-center gap-4     ">
           <div className="w-20 h-20 rounded-full border-8 flex items-center justify-center">
             <div>
-              <ResponsiveImage
+              {/* <ResponsiveImage
                 src={icon1}
                 width={800}
                 height={300}
                 alt="icon"
                 priority={true}
                 className="w-24 h-full object-cover"
-              />
+              /> */}
             </div>
           </div>
           <div className=" flex flex-col">
@@ -29,14 +29,14 @@ export default function DoctorProfileStatus() {
         <div className="flex justify-center gap-4   ">
           <div className="w-20 h-20 rounded-full border-8 flex items-center justify-center">
             <div>
-              <ResponsiveImage
+              {/* <ResponsiveImage
                 src={icon2}
                 width={800}
                 height={300}
                 alt="icon"
                 priority={true}
                 className="w-24 h-full object-cover"
-              />
+              /> */}
             </div>
           </div>
           <div className=" flex flex-col">
@@ -48,14 +48,14 @@ export default function DoctorProfileStatus() {
         <div className="flex justify-center gap-4">
           <div className="w-20 h-20 rounded-full border-8 flex items-center justify-center">
             <div>
-              <ResponsiveImage
+              {/* <ResponsiveImage
                 src={icon3}
                 width={800}
                 height={300}
                 alt="icon"
                 priority={true}
                 className="w-24 h-full object-cover"
-              />
+              /> */}
             </div>
           </div>
           <div className=" flex flex-col">

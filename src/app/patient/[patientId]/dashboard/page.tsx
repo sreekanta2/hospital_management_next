@@ -42,7 +42,7 @@ export default function PatientDashboard() {
             </TabsTrigger>
           </TabsList>
           {/* appointmnet */}
-          <ScrollArea className="w-[800px] overflow-hidden"></ScrollArea>
+          {/* <ScrollArea className="w-[800px] overflow-hidden"></ScrollArea> */}
           <Appointment />
 
           <Prescription />

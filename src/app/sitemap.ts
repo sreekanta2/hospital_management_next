@@ -9,13 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${process.env.NEXT_BASE_PUBLIC_URL}/doctros`,
+      url: `${process.env.NEXT_BASE_PUBLIC_URL}/doctor`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${process.env.NEXT_BASE_PUBLIC_URL}/patients/1/dashboard`,
+      url: `${process.env.NEXT_BASE_PUBLIC_URL}/patient/1/dashboard`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,

@@ -8,7 +8,7 @@ import React from "react";
 
 export default function NotificationCard() {
   return (
-    <div className=" w-full cursor-pointer p-1 rounded-lg hover:bg-gray-800">
+    <div className=" w-full cursor-pointer p-1 rounded-lg hover:bg-slate-50 dark:hover:bg-gray-800">
       <div className="flex justify-between ">
         <div className="flex gap-3 items-center h-12  p-2">
           <div

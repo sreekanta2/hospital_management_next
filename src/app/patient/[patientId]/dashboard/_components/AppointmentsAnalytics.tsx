@@ -18,8 +18,8 @@ export default function AppointmentsAnalytics() {
     undefined
   );
   return (
-    <div className="grid md:grid-cols-5 gap-4   ">
-      <div className="w-full md:col-span-2 border rounded-md p-4">
+    <div className="grid h-fit md:grid-cols-5 gap-4   ">
+      <div className="w-full h-fit md:col-span-2 border rounded-md p-4">
         <div className="flex justify-between">
           <div className="flex items-center gap-4  ">
             <CalendarDays />
@@ -57,7 +57,7 @@ export default function AppointmentsAnalytics() {
           <AppointmentCard />
         </div>
       </div>
-      <div className="md:col-span-3 border rounded-md p-4">
+      <div className="md:col-span-3 border rounded-md p-4 ">
         <div className="grid  grid-cols-3 gap-4">
           <h1 className="text-xl font-semibold text-gray-600 ">Analytics</h1>
           <CustomSelect

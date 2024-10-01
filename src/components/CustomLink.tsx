@@ -14,7 +14,10 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   className,
 }) => {
   return (
-    <Link href={href} className={className}>
+    <Link
+      href={href}
+      className={`w-full h-10  rounded-sm  flex items-center justify-center ${className}`}
+    >
       {children}
     </Link>
   );

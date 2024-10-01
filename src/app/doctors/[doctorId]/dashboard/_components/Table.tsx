@@ -15,8 +15,9 @@ export default function Table({ control }: AppointmentsModalProps) {
             <ResponsiveImage
               src={profile}
               alt="icon"
-              width={500}
-              height={300}
+              width="300px"
+              height="300px"
+              priority={true}
             />
           </div>
           <div>

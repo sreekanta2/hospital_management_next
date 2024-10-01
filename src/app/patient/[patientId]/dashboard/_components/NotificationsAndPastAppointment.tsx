@@ -5,12 +5,15 @@ import { CustomSelect } from "@/components/CustomSelect";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import NotificationCard from "./NotificationCard";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
+import PastAppointmentCard from "./PastAppointmentCard";
+import Dependant from "./Dependant";
 
 export default function NotificationsAndPastAppointment() {
   return (
     <div>
       <div className="grid md:grid-cols-5 gap-4   ">
-        <div className="w-full md:col-span-2 border rounded-md p-4">
+        <div className="w-full  md:col-span-2 border rounded-md p-4">
           <div className="flex justify-between">
             <div className="w-full flex items-center justify-between ">
               <h1 className="text-xl font-semibold text-gray-600 ">
@@ -21,7 +24,7 @@ export default function NotificationsAndPastAppointment() {
           </div>
           <hr className="mt-4" />
 
-          <div className=" w-full my-4  flex flex-col  ">
+          <div className=" w-full h-fit my-4  flex flex-col  ">
             {/* <ScrollArea className="w-full whitespace-nowrap rounded-md  "> */}
             <NotificationCard />
             <NotificationCard />
@@ -54,18 +57,46 @@ export default function NotificationsAndPastAppointment() {
               ]}
             />
           </div>
-          <hr className="mt-4" />
+          <hr className="my-4" />
 
-          <div>
-            <Tabs className="my-4 ">
-              <TabsList className="  ">
-                <TabsTrigger value="heartrate">Heart Rate</TabsTrigger>
-                <TabsTrigger value="bloodpressure">Blood Pressure</TabsTrigger>
-              </TabsList>
+          <div className="w-full md:col-span-2 border rounded-md px-4">
+            <div className="flex justify-between py-4">
+              <div className="flex items-center gap-4  ">
+                <CalendarDays />
+                <h1 className="text-xl font-semibold text-gray-600 ">
+                  Appointment
+                </h1>
+              </div>
 
-              <TabsContent value="heartrate">heartrate</TabsContent>
-              <TabsContent value="bloodpressure">bloodpressure</TabsContent>
-            </Tabs>
+              <div className="flex ">
+                <ChevronLeft className="cursor-pointer" />
+                <ChevronRight className="cursor-pointer" />
+              </div>
+            </div>
+            <hr className="" />
+            {/* <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="w-24"
+        >
+          <CarouselContent>
+            <CarouselItem className="basis-1/3">1</CarouselItem>
+            <CarouselItem className="basis-1/3">5</CarouselItem>
+            <CarouselItem className="basis-1/3">6</CarouselItem>
+            <CarouselItem className="basis-1/3">6</CarouselItem>
+            <CarouselItem className="basis-1/3">6</CarouselItem>
+            <CarouselItem className="basis-1/3">6</CarouselItem>
+            <CarouselItem className="basis-1/3">6</CarouselItem>
+            <CarouselPrevious />
+            <CarouselNext />
+          </CarouselContent>
+        </Carousel> */}
+            <div className=" w-full my-4 flex flex-col gap-4 ">
+              <PastAppointmentCard />
+            </div>
+
+            <Dependant />
           </div>
         </div>
       </div>
