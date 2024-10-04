@@ -19,8 +19,8 @@ export default function HealthRecords() {
     undefined
   );
   return (
-    <div className="lg:grid  lg:grid-cols-3 gap-x-4">
-      <div className="w-full border col-span-2 px-4 py-6 rounded-md">
+    <div className="grid  lg:grid  lg:grid-cols-3 gap-4">
+      <div className="w-full border lg:col-span-2 px-4 py-6 rounded-md">
         <div className="  flex justify-between mb-4  ">
           <h1 className="text-lg font-semibold  text-gray-600 ">
             Health Records

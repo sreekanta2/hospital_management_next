@@ -11,7 +11,7 @@ import React from "react";
 
 export default function PastAppointmentCard() {
   return (
-    <div className=" w-full  rounded-lg dark:bg-gray-800 space-y-4">
+    <div className=" w-full p-4 rounded-lg dark:bg-gray-800 space-y-4">
       <h1 className="flex gap-x-2 text-lg  font-semibold">
         Fridday March 2024
       </h1>

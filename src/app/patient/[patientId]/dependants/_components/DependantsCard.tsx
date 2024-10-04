@@ -9,7 +9,7 @@ import React from "react";
 
 export default function DependantsCard() {
   return (
-    <div className="border rounded-md w-full grid grid-cols-1 md:grid-cols-2 py-4 px-3 gap-4   ">
+    <div className="border rounded-md w-full grid grid-cols-1 md:grid-cols-2 py-4 px-3 gap-4 bg-slate-50 dark:bg-gray-800   ">
       <div className="flex gap-4  items-star">
         <ResponsiveImage
           src={profile}

@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { CircleAlert, Receipt, Wallet, WalletMinimal } from "lucide-react";
 import React from "react";
+import { AccountUpdateModel } from "./AccountUpdateModel";
+import { OtherAccountsModal } from "./OthersAccounts";
+import { PaymentRequestModal } from "./PaymenstRequestModal";
 
 export default function AccountsDetails() {
   return (
@@ -38,7 +41,7 @@ export default function AccountsDetails() {
             <h1 className="text-gray-400">
               Last Payment request : 24 Mar 2023
             </h1>
-            <Button variant="hover">Request Payment</Button>
+            <PaymentRequestModal />
           </div>
         </div>
         <div>
@@ -62,8 +65,8 @@ export default function AccountsDetails() {
             </div>
           </div>
           <div className="flex items-center  mt-8 gap-x-4">
-            <h1 className="text-blue-600">Edit Details</h1>
-            <h1 className="text-blue-600">Others Accounts</h1>
+            <AccountUpdateModel />
+            <OtherAccountsModal />
           </div>
         </div>
       </div>
