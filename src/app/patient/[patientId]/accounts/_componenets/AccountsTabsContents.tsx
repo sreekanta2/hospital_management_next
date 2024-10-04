@@ -1,5 +1,3 @@
-import Avatar from "@/components/Avatar";
-import IconWrapper from "@/components/IconWrapper";
 import PaginationComponent from "@/components/PaginationComponent";
 import SearchInput from "@/components/SearchInput";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -11,26 +9,23 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Link, Printer } from "lucide-react";
-import PatientsLayout from "../_components/PatientsLayout";
+import { TabsContent } from "@/components/ui/tabs";
 
-export default function page() {
+export default function AccountsTabsContents() {
   const headers = [
     "ID",
-    "Doctor",
-    "Appointment Date",
-
-    "Booked on",
+    "Account No",
+    "Reason",
+    "Debited / Credited On",
     "Amount",
-    "Action",
+    "Status",
   ];
   return (
-    <PatientsLayout>
-      <h1 className="text-xl   border-gray-200  border-b pb-2 ">Invoices</h1>
+    <TabsContent value="accounts">
       <div>
         <SearchInput
           placeholder="Search for items..."
-          baseUrl={`/patient/1/invoices`}
+          baseUrl={`/patient/1/accounts`}
           searchParamKey="q"
           debounceDelay={500}
           className="w-fit my-4"
@@ -55,27 +50,12 @@ export default function page() {
                 <TableCell>
                   <p>#AC-1234</p>
                 </TableCell>
-                <TableCell>
-                  <Avatar />
-                </TableCell>
+                <TableCell>5396 5250 1908 XXXX</TableCell>
+                <TableCell className="">Appointment</TableCell>
 
-                <TableCell>26 Mar 2024</TableCell>
                 <TableCell>26 Mar 2024</TableCell>
                 <TableCell>$300</TableCell>
-
-                <TableCell className="flex mt-2 gap-4">
-                  <IconWrapper
-                    icon={Link}
-                    className=" hover:bg-blue-500 hover:text-white"
-                  />
-                  <IconWrapper
-                    icon={Printer}
-                    className=" hover:bg-blue-500 hover:text-white"
-                  />
-                  {/* <span className="px-2 py-1  bg-[#eaab08]  rounded-full text-xs text-white ">
-                    pending
-                  </span> */}
-                </TableCell>
+                <TableCell> Completed</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -86,8 +66,8 @@ export default function page() {
       <PaginationComponent
         currentPage={2}
         totalPages={10}
-        baseUrl="/patient/2/invoice"
+        baseUrl="/patient/2/dashboard"
       />
-    </PatientsLayout>
+    </TabsContent>
   );
 }

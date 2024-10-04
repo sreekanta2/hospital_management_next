@@ -26,8 +26,12 @@ export default function page() {
   return (
     <PatientsLayout>
       <div className="w-full">
-        <ScrollArea className="w-full whitespace-nowrap rounded-md ">
-          <Table className="border rounded-md">
+        <h1 className="text-xl   border-gray-200   ">Orders</h1>
+
+        <hr className="my-4" />
+
+        <ScrollArea className="w-full whitespace-nowrap rounded-md  ">
+          <Table className="border rounded-md mt-4">
             <TableHeader>
               <TableRow>
                 {headers.map((header, index) => (

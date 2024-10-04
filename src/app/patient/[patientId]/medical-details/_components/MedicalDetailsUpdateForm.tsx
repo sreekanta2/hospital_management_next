@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import ResponsiveImage from "@/components/ResponsiveImage";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -14,7 +13,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import FileInput from "@/components/ui/FileInput";
 import {
   Form,
   FormControl,
@@ -25,140 +23,68 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { File } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Edit } from "lucide-react";
+import { useState } from "react";
 
 // Define schema using zod
 const FormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  relationship: z
-    .string()
-    .min(2, "Relationship must be at least 2 characters."),
-  dob: z.string().min(1, "Date of birth is required."),
-  uploadFile: z.any().optional(), // Make uploadFile optional for submission
-  gender: z.string().min(2, "Gender is required."),
+  bmi: z.string().min(2, "bmi must be at least 2 characters."),
+  heartRate: z.string().min(2, "hearRate must be at least 2 characters."),
+  width: z.string().min(1, "width is required."),
+  fbc: z.string().min(1, "fbc is required."),
+  date: z.string().min(1, "Date  is required."),
+  // Make uploadFile optional for submission
 });
 
-export function DependantsCreatedForm() {
+export function MedicalDetailsUpdatedForm() {
   // State to hold the image preview URL
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   // Initialize form with react-hook-form and zod
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: "",
-      relationship: "",
-      uploadFile: null,
-      dob: "",
-      gender: "",
+      bmi: "",
+      heartRate: "",
+      width: "",
+      fbc: "",
+      date: "",
     },
   });
 
   // Handle form submission
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("relationship", data.relationship);
-    formData.append("dob", data.dob);
-    formData.append("gender", data.gender);
-
-    if (data.uploadFile) {
-      formData.append("uploadFile", data.uploadFile);
-    }
-
+    console.log(data);
     // Submit formData as needed (e.g., send to API)
   }
-
-  // Handle file change
-  const handleFileChange = (file: File | null) => {
-    // Reset the preview if no file is selected
-    if (!file) {
-      setImagePreview(null);
-      return;
-    }
-
-    // Validate file type
-    const validTypes = ["image/jpeg", "image/png", "image/svg+xml"];
-    const isValidType = validTypes.includes(file.type);
-
-    // Validate file size (3 MB = 3 * 1024 * 1024 bytes)
-    const isValidSize = file.size <= 2 * 1024 * 1024;
-
-    if (!isValidType) {
-      alert("Please upload a file of type: jpg, png, or svg.");
-      form.setValue("uploadFile", null); // Reset the file input
-      return;
-    }
-
-    if (!isValidSize) {
-      alert("Please upload a file smaller than 3 MB.");
-      form.setValue("uploadFile", null); // Reset the file input
-      return;
-    }
-
-    // If validation passes, update the form and set the image preview
-    form.setValue("uploadFile", file);
-    const previewUrl = URL.createObjectURL(file);
-    setImagePreview(previewUrl);
-  };
-
-  // Clean up the object URL when component unmounts
-  useEffect(() => {
-    return () => {
-      if (imagePreview) {
-        URL.revokeObjectURL(imagePreview);
-      }
-    };
-  }, [imagePreview]);
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="hover">Add Dependants</Button>
+        <div
+          className={`border dark:border h-8 w-8 dark:border-gray-700 p-1 rounded-full shadow-lg cursor-pointer grid place-items-center  hover:bg-blue-500 hover:text-white `}
+        >
+          <Edit size={15} strokeWidth={2} />
+        </div>
       </DialogTrigger>
       <DialogContent className="w-full max-w-xl p-6">
         <ScrollArea className="h-[75vh] pr-4">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <DialogHeader>
-                <div className="flex gap-4">
-                  {imagePreview && (
-                    <ResponsiveImage
-                      src={imagePreview}
-                      width="80px"
-                      height="80px"
-                      alt="dependants profile image"
-                      className="rounded-md"
-                    />
-                  )}
-
-                  {!imagePreview && (
-                    <File size={75} className="border rounded-md p-4" />
-                  )}
-                  <div className="flex flex-col gap-2">
-                    <DialogTitle className="-ml-5 md:ml-0">
-                      Profile Image
-                    </DialogTitle>
-                    <div className="flex items-start gap-2">
-                      <FileInput onFileChange={handleFileChange} />
-                    </div>
-                  </div>
-                </div>
-                <DialogDescription>
-                  Your image should be below 3 MB, accepted formats: jpg, png,
-                  svg.
-                </DialogDescription>
+                <DialogTitle>Add Medical Details </DialogTitle>
+                <hr className="mt-6" />
+                <DialogDescription></DialogDescription>
               </DialogHeader>
 
               {/* Text Name Field */}
               <FormField
                 control={form.control}
-                name="name"
+                name="bmi"
                 render={({ field }) => (
                   <FormItem className="mt-4">
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>BMI</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter name" {...field} />
+                      <Input {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -168,12 +94,12 @@ export function DependantsCreatedForm() {
               {/* Relationship Field */}
               <FormField
                 control={form.control}
-                name="relationship"
+                name="heartRate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Relationship</FormLabel>
+                    <FormLabel>Heart Rate</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter relationship" {...field} />
+                      <Input {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -183,12 +109,12 @@ export function DependantsCreatedForm() {
               {/* Date of Birth Field */}
               <FormField
                 control={form.control}
-                name="dob"
+                name="width"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Date of Birth</FormLabel>
+                    <FormLabel>Width</FormLabel>
                     <FormControl>
-                      <Input type="date" {...field} />
+                      <Input {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -198,17 +124,19 @@ export function DependantsCreatedForm() {
               {/* Gender Field */}
               <FormField
                 control={form.control}
-                name="gender"
+                name="fbc"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Gender</FormLabel>
+                    <FormLabel>FBC</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter gender" {...field} />
+                      <Input {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+
+              {/* <DateInput label="End Date" name="date" control={form.control} /> */}
 
               {/* Submit Button */}
               <Button type="submit" className="w-full bg-[#0de0fe]">

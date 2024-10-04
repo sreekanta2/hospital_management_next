@@ -1,6 +1,12 @@
-import React from "react";
 import PatientsLayout from "../_components/PatientsLayout";
+import { PatientProfileSettingsForm } from "./_components/PatientProfileSettingsForm";
 
 export default function page() {
-  return <PatientsLayout>page</PatientsLayout>;
+  return (
+    <PatientsLayout>
+      <div>
+        <PatientProfileSettingsForm />
+      </div>
+    </PatientsLayout>
+  );
 }

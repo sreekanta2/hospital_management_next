@@ -1,65 +1,76 @@
-import Avatar from "@/components/Avatar";
+import { z } from "zod";
+
 import IconWrapper from "@/components/IconWrapper";
-import PaginationComponent from "@/components/PaginationComponent";
-import SearchInput from "@/components/SearchInput";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { profile } from "@/images";
+import { DialogTitle } from "@radix-ui/react-dialog";
 import {
   CalendarDays,
   CopyPlus,
   Heart,
+  Link,
   Syringe,
-  Trash2,
   UserPen,
 } from "lucide-react";
 import { FaTemperatureHigh } from "react-icons/fa";
-import PatientsLayout from "../_components/PatientsLayout";
-import { MedicalDetailsCreatedForm } from "./_components/MedicalDetailsCreatedForm";
-import { MedicalDetailsModal } from "./_components/MedicalDetailsModal";
-import { MedicalDetailsUpdatedForm } from "./_components/MedicalDetailsUpdateForm";
 
-const headers = [
-  "ID",
-  "Patient Name",
-  "BMI",
+// Define schema using zod
+const FormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters."),
+  relationship: z
+    .string()
+    .min(2, "Relationship must be at least 2 characters."),
+  dob: z.string().min(1, "Date of birth is required."),
+  uploadFile: z.any().optional(), // Make uploadFile optional for submission
+  gender: z.string().min(2, "Gender is required."),
+});
 
-  "Heart Rate",
-  "FBC Status",
-  "Weight",
-  "Added on",
-  "Action",
-];
-export default function page() {
+export function MedicalDetailsModal() {
   return (
-    <PatientsLayout>
-      <div className="flex flex-col gap-4">
-        <h1 className="text-xl   border-gray-200  border-b pb-2 ">
-          Medical Details
-        </h1>
+    <Dialog>
+      <DialogTrigger asChild>
+        <IconWrapper
+          icon={Link}
+          className=" hover:bg-blue-500 hover:text-white"
+        />
+      </DialogTrigger>
+      <DialogContent className="w-full max-w-xl p-6">
+        <ScrollArea className=" pr-4">
+          <DialogTitle>Add Medical Details</DialogTitle>
+          <hr className="mt-2" />
+          <DialogDescription></DialogDescription>
+          <div className=" flex flex-col md:flex-row items-start gap-4 justify-between p-6">
+            <div className="flex gap-4 items-center ">
+              <ResponsiveImage
+                src={profile}
+                className=" rounded-lg"
+                alt="profile"
+                width="80px"
+                height="80px"
+              />
 
-        <div>
-          <div className="border rounded-md p-4">
-            <div className="flex items-center justify-between">
-              {/* First div content on the left */}
-              <h1>Latest updated medical details</h1>
+              <h1>Jhon doe</h1>
+            </div>
 
-              {/* Second div content on the right */}
-              <div className="flex items-center gap-2">
-                <CalendarDays />
+            <div className="flex   gap-2 text-sm">
+              <CalendarDays size={15} className="mt-1" />
+              <div className="flex flex-col">
                 <span>Last update on:</span>
+
                 <span>24 March 2024</span>
               </div>
             </div>
-            <hr className="my-2 mb-8" />
+          </div>
 
-            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mt-2 items-center       ">
+          <div>
+            <div className=" grid grid-cols-2 md:grid-cols-3  gap-6  items-center  border p-4 rounded-md bg-slate-100 dark:bg-gray-800      ">
               {/*  */}
 
               {/* First Column */}
@@ -178,73 +189,9 @@ export default function page() {
                 </div>
               </div>
             </div>
-            <div>
-              <div className="flex gap-4 justify-between items-center mt-4">
-                <SearchInput
-                  placeholder="Search for items..."
-                  baseUrl={`/patient/1/medical-details`}
-                  searchParamKey="q"
-                  debounceDelay={500}
-                  className="w-fit my-4"
-                />
-
-                <MedicalDetailsCreatedForm />
-              </div>
-              <ScrollArea className="w-5xl whitespace-nowrap rounded-md ">
-                <Table className="border rounded-md">
-                  <TableHeader className="bg-slate-100 dark:bg-gray-800">
-                    <TableRow>
-                      {headers.map((header, index) => (
-                        <TableHead key={index} className="w-[100px]">
-                          {header}
-                        </TableHead>
-                      ))}
-                    </TableRow>
-                  </TableHeader>
-
-                  <TableBody className="w-full  ">
-                    {[1, 2, 3].map((i) => (
-                      <TableRow className=" h-14 " key={i}>
-                        <TableCell>
-                          <p>#AC-1234</p>
-                        </TableCell>
-                        <TableCell>
-                          <Avatar />
-                        </TableCell>
-
-                        <TableCell>23.5</TableCell>
-                        <TableCell>89</TableCell>
-                        <TableCell>140</TableCell>
-                        <TableCell>65kg</TableCell>
-                        <TableCell>22 Mar 2024</TableCell>
-
-                        <TableCell className="flex mt-2 gap-4">
-                          <MedicalDetailsModal />
-                          <MedicalDetailsUpdatedForm />
-                          <IconWrapper
-                            icon={Trash2}
-                            className=" hover:bg-red-200 hover:text-red-400"
-                          />
-                          {/* <span className="px-2 py-1  bg-[#eaab08]  rounded-full text-xs text-white ">
-                    pending
-                  </span> */}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-
-                <ScrollBar orientation="horizontal" />
-              </ScrollArea>
-              <PaginationComponent
-                currentPage={2}
-                totalPages={10}
-                baseUrl="/patient/2/medical-details"
-              />
-            </div>
           </div>
-        </div>
-      </div>
-    </PatientsLayout>
+        </ScrollArea>
+      </DialogContent>
+    </Dialog>
   );
 }

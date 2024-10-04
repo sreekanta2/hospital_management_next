@@ -8,7 +8,7 @@ import { PaymentRequestModal } from "./PaymenstRequestModal";
 export default function AccountsDetails() {
   return (
     <div className="w-full space-y-4  ">
-      <h1 className="text-xl   border-gray-200  border-b pb-2 ">Dashboard</h1>
+      <h1 className="text-xl   border-gray-200  border-b pb-2 ">Account</h1>
 
       <div className="  bg-gray-900 text-white grid grid-cols-1 md:grid-cols-2 gap-8 p-6 rounded-lg">
         <div>
