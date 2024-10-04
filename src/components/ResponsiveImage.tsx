@@ -2,7 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import React from "react";
 
 interface ResponsiveImageProps {
-  src: StaticImageData; // The source of the image
+  src: StaticImageData | string; // The source of the image
   alt: string; // The alt text for the image
   width?: string; // Optional: Custom width for the parent container (default: '100%')
   height?: string; // Optional: Custom height for the parent container (default: '256px')

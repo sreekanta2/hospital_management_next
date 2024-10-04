@@ -1,5 +1,6 @@
 import Avatar from "@/components/Avatar";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import ToggleSwitch from "@/components/ToogleSwitch";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { profile } from "@/images";
@@ -43,7 +44,7 @@ export default function DependantsCard() {
         </div>
         <div className="flex items-center space-x-2">
           <Label htmlFor="airplane-mode">Detective</Label>
-          <Switch id="airplane-mode" />
+          <ToggleSwitch />
           <Label htmlFor="airplane-mode">Active</Label>
           <SquarePen
             className="border dark:border dark:border-gray-700 p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white cursor-pointer"

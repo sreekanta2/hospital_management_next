@@ -5,11 +5,13 @@ import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DependantsCard from "./_components/DependantsCard";
 import PaginationComponent from "@/components/PaginationComponent";
+import { DependantsCreatedForm } from "./_components/DependantsCreatedForm";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function page() {
   return (
     <PatientsLayout>
-      <div className="px-4">
+      <div className="w-full">
         <form className="flex justify-between items-center">
           <h1 className="text-lg font-bold">Dependants</h1>
           <div className="flex items-center border rounded-md lg:mb-4 ">
@@ -31,9 +33,8 @@ export default function page() {
             />
             <Search size={14} className="mr-2" />
           </div>
-          <Button variant="hover" type="button">
-            Dependants
-          </Button>
+
+          <DependantsCreatedForm />
         </form>
 
         <div className="flex flex-col gap-4">

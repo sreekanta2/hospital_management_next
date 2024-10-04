@@ -11,7 +11,7 @@ import React from "react";
 
 export default function FavouriteDoctorCard() {
   return (
-    <section className="border rounded-md w-full text-gray-600 dark:text-gray-400 py-4">
+    <section className="border rounded-md w-full text-gray-600 dark:text-gray-400 py-4 px-2">
       <div className="flex gap-x-8 justify-center relative">
         <div className="relative w-20 h-20">
           <ResponsiveImage
@@ -53,7 +53,7 @@ export default function FavouriteDoctorCard() {
         </p>
       </div>
       <hr className="my-4" />
-      <div className="grid grid-cols-1 md:grid-cols-2 mt-4 gap-x-2 items-center px-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 mt-4 gap-2 items-center">
         <CustomLink href="#" className="border">
           View Details
         </CustomLink>

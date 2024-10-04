@@ -9,17 +9,11 @@ import {
 } from "@/components/ui/table";
 
 import PatientsLayout from "../_components/PatientsLayout";
-import MedicalRecords from "./_components/MedicalRecords";
-import { AddMedicalRecords } from "./_components/AddMedicalRecords";
 
-const headers = [
-  "Test Name",
-  "Hospital Name",
-  "Date",
-  "Attachmentnt",
-  "Created by",
-  "Action",
-];
+import { AddMedicalRecords } from "./_components/AddMedicalRecords";
+import MedicalRecords from "./_components/MedicalRecords";
+
+const headers = ["ID", " Name", "Date", "Created by", "Action"];
 
 export default function page() {
   return (
@@ -28,7 +22,7 @@ export default function page() {
         <section className="flex justify-end">
           <AddMedicalRecords />
         </section>
-        <ScrollArea className="w-full whitespace-nowrap rounded-md ">
+        <ScrollArea className="w-5xl whitespace-nowrap rounded-md ">
           <Table className="border rounded-md">
             <TableHeader>
               <TableRow>
@@ -55,7 +49,7 @@ export default function page() {
         <PaginationComponent
           currentPage={2}
           totalPages={10}
-          baseUrl="/patients/2/dashboard"
+          baseUrl="/patient/2/dashboard"
         />
       </div>
     </PatientsLayout>
