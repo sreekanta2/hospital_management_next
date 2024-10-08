@@ -1,8 +1,8 @@
 "use client";
+import profileImage from "@/assets/doctor-thumb-02.jpg";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import ResponsiveImage from "./ResponsiveImage";
-import profileImage from "@/assets/doctor-thumb-02.jpg";
 
 // Define the type for each option in the sidebar
 type SidebarOption = {

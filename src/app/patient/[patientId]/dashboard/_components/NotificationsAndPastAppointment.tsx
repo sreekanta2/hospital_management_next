@@ -1,13 +1,9 @@
-import Link from "next/link";
-import React from "react";
-import AppointmentCard from "./AppointmentCard";
 import { CustomSelect } from "@/components/CustomSelect";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import NotificationCard from "./NotificationCard";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
-import PastAppointmentCard from "./PastAppointmentCard";
+import Link from "next/link";
+import NotificationCard from "../../../../_components/NotificationCard";
 import Dependant from "./Dependant";
+import PastAppointmentCard from "./PastAppointmentCard";
 
 export default function NotificationsAndPastAppointment() {
   return (

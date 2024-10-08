@@ -1,7 +1,6 @@
 import Avatar from "@/components/Avatar";
-import Avaatar from "@/components/Avatar";
 import { TableCell, TableRow } from "@/components/ui/table";
-import React from "react";
+import Link from "next/link";
 
 export default function PrescriptionTable() {
   return (
@@ -12,7 +11,13 @@ export default function PrescriptionTable() {
       </TableCell>
       <TableCell className="text-start">Confirm</TableCell>
       <TableCell>
-        <Avatar />
+        <div className="flex gap-3 items-start">
+          <Avatar className="rounded-lg" width="50px" height="50px" />
+          <Link href={`#`} className="flex flex-col items-start">
+            <h1 className="text-sm font-semibold">Jhon Doe</h1>
+            <p className="text-gray-500">1234567890</p>
+          </Link>
+        </div>
       </TableCell>
 
       <TableCell className=" flex gap-1  items-center h-full ">

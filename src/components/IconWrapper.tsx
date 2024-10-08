@@ -13,7 +13,7 @@ const IconWrapper = forwardRef<HTMLDivElement, IconWrapperProps>(
     return (
       <div
         ref={ref}
-        className={`border dark:border h-8 w-8 dark:border-gray-700 p-1 rounded-full shadow-lg cursor-pointer grid place-items-center ${className}`}
+        className={`border dark:border h-7 w-7 dark:border-gray-700 p-1 rounded-full shadow-lg cursor-pointer grid place-items-center ${className}`}
       >
         {Icon && <Icon size={size} strokeWidth={strokeWidth} />}
       </div>

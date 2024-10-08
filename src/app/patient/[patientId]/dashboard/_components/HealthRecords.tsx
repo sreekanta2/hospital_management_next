@@ -1,4 +1,6 @@
 "use client";
+import Avatar from "@/components/Avatar";
+import { CustomSelect } from "@/components/CustomSelect";
 import {
   ClipboardPlus,
   CopyPlus,
@@ -7,12 +9,10 @@ import {
   Syringe,
   UserPen,
 } from "lucide-react";
-import React, { useState } from "react";
-import { PieCharts } from "./PieCharts";
-import { FaTemperatureHigh } from "react-icons/fa";
-import { CustomSelect } from "@/components/CustomSelect";
 import Link from "next/link";
-import Avatar from "@/components/Avatar";
+import { useState } from "react";
+import { FaTemperatureHigh } from "react-icons/fa";
+import { PieCharts } from "./PieCharts";
 
 export default function HealthRecords() {
   const [selectedFruit, setSelectedFruit] = useState<string | undefined>(
@@ -192,7 +192,13 @@ export default function HealthRecords() {
             {[1, 2, 3, 4, 5].map((fv) => (
               <div key={fv}>
                 <div className="flex justify-between items-center">
-                  <Avatar className="rounded-md" />
+                  <div className="flex gap-3 items-start">
+                    <Avatar className="rounded-lg" width="50px" height="50px" />
+                    <Link href={`#`} className="flex flex-col items-start">
+                      <h1 className="text-sm font-semibold">Jhon Doe</h1>
+                      <p className="text-gray-500">1234567890</p>
+                    </Link>
+                  </div>
                   <div className="h-10 w-10 cursor-pointer hover:bg-blue-500 hover:text-white rounded-full border flex justify-center items-center">
                     <ClipboardPlus size={18} />
                   </div>

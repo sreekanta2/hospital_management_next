@@ -40,7 +40,7 @@ export default function PaginationComponent({
   };
 
   return (
-    <Pagination className="py-10">
+    <Pagination className="pt-2">
       <PaginationContent>
         {/* Previous Button */}
         {currentPage > 1 && (

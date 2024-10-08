@@ -1,12 +1,18 @@
 import Avatar from "@/components/Avatar";
-import { CalendarCheck, Clock, Eye, MessageCircle, Video } from "lucide-react";
-import React from "react";
+import { CalendarCheck, Clock, MessageCircle, Video } from "lucide-react";
+import Link from "next/link";
 
 export default function AppointmentCard() {
   return (
     <div className=" w-full   border   p-4 rounded-lg dark:bg-gray-800">
       <div className="flex justify-between ">
-        <Avatar className="rounded-md" />
+        <div className="flex gap-3 items-start">
+          <Avatar className="rounded-lg" width="50px" height="50px" />
+          <Link href={`#`} className="flex flex-col items-start">
+            <h1 className="text-sm font-semibold">Jhon Doe</h1>
+            <p className="text-gray-500">1234567890</p>
+          </Link>
+        </div>
         <Video
           className="border dark:border dark:border-gray-700 p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white cursor-pointer"
           size={40}

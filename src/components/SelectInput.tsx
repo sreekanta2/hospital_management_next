@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Control,
   Controller,
@@ -30,6 +29,7 @@ interface SelectInputProps<T extends FieldValues> {
   placeholder?: string;
   rules?: Record<string, any>;
   onChange?: (value: string) => void;
+  align?: string;
 }
 
 export default function SelectInput<T extends FieldValues>({
@@ -76,7 +76,7 @@ export default function SelectInput<T extends FieldValues>({
                   {/* Display placeholder if no value is selected */}
                 </SelectValue>
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent align={"end"}>
                 {options.map((option) => (
                   <SelectItem key={option.value} value={option.value}>
                     {option.label}

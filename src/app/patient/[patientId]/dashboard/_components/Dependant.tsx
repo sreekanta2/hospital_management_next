@@ -1,7 +1,6 @@
 import Avatar from "@/components/Avatar";
 import { ClipboardPlus, EyeIcon, PlusCircle } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 export default function Dependant() {
   return (
@@ -14,14 +13,20 @@ export default function Dependant() {
         </div>
         <Link href="#">View All</Link>
       </div>
-      <hr />
+      <hr className="my-2" />
 
-      <div className="flex flex-col gap-2 ">
+      <div className="flex flex-col gap-2  ">
         {[1, 2, 3].map((dpt) => (
           <div key={dpt}>
             <div className="flex justify-between items-center">
-              <Avatar className="rounded-md" />
-              <div className="flex  gap-4">
+              <div className="flex gap-3 items-start">
+                <Avatar className="rounded-lg" width="50px" height="50px" />
+                <Link href={`#`} className="flex flex-col items-start">
+                  <h1 className="text-sm font-semibold">Jhon Doe</h1>
+                  <p className="text-gray-500">1234567890</p>
+                </Link>
+              </div>
+              <div className="flex  gap-4  ">
                 <div className="h-10 w-10 cursor-pointer hover:bg-blue-500 hover:text-white rounded-full border flex justify-center items-center">
                   <ClipboardPlus size={18} />
                 </div>

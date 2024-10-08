@@ -1,6 +1,7 @@
 import SideBarLinks from "@/components/SidebarLinks";
-import { doctorSidebarOptions } from "@/constant";
+
 import { ReactNode } from "react";
+import { doctorSidebarOptions } from "./constants";
 
 export default function DoctorLayout({
   children, // This will include the child pages (appointments, reviews, etc.)
@@ -8,11 +9,15 @@ export default function DoctorLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="grid   grid-cols-1  md:grid-cols-4 gap-4">
-      <div className="col-span-1">
+    <div className="flex flex-col lg:flex-row min-h-screen">
+      {/* Sidebar Section */}
+      <div className="lg:w-1/3 px-4 lg:sticky lg:top-20 lg:self-start">
         <SideBarLinks options={doctorSidebarOptions} baseUrl="doctors" />
       </div>
-      <main className="col-span-3">{children}</main>
+
+      {/* Main Content Section */}
+
+      <main className="w-full px-4">{children}</main>
     </div>
   );
 }

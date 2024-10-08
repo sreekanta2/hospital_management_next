@@ -1,6 +1,6 @@
 import Avatar from "@/components/Avatar";
 import { TableCell, TableRow } from "@/components/ui/table";
-import React from "react";
+import Link from "next/link";
 
 export default function BillingTable() {
   return (
@@ -9,7 +9,13 @@ export default function BillingTable() {
         <p>#0001</p>
       </TableCell>
       <TableCell>
-        <Avatar />
+        <div className="flex gap-3 items-start">
+          <Avatar className="rounded-lg" width="50px" height="50px" />
+          <Link href={`#`} className="flex flex-col items-start">
+            <h1 className="text-sm font-semibold">Jhon Doe</h1>
+            <p className="text-gray-500">1234567890</p>
+          </Link>
+        </div>
       </TableCell>
       {/* <TableCell className="px-6 py-4">
         <h1 className="text-gray-700">11 Nov 2023 </h1>

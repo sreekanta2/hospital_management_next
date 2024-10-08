@@ -1,8 +1,8 @@
 import Avatar from "@/components/Avatar";
+
 import { TableCell, TableRow } from "@/components/ui/table";
-import { Download, PenSquare, Trash2Icon, TrashIcon } from "lucide-react";
-import React from "react";
-import { FiTrash2 } from "react-icons/fi";
+import { Download, PenSquare, Trash2Icon } from "lucide-react";
+import Link from "next/link";
 
 export default function MedicalRecords() {
   return (
@@ -17,7 +17,13 @@ export default function MedicalRecords() {
       </TableCell>
 
       <TableCell>
-        <Avatar />
+        <div className="flex gap-3 items-start">
+          <Avatar className="rounded-lg" width="50px" height="50px" />
+          <Link href={`#`} className="flex flex-col items-start">
+            <h1 className="text-sm font-semibold">Jhon Doe</h1>
+            <p className="text-gray-500">1234567890</p>
+          </Link>
+        </div>
       </TableCell>
       <TableCell className=" flex gap-1    ">
         <div className="border dark:border h-8 w-8 dark:border-gray-700 p-1 rounded-full shadow-lg hover:bg-blue-500 hover:text-white cursor-pointer grid place-items-center">
