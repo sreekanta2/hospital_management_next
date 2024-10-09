@@ -1,4 +1,5 @@
 import Avatar from "@/components/Avatar";
+import { profile } from "@/images";
 
 export default function ClinicCard() {
   const name = "Clinic Name gfgffg fgfg fg fg fg fg f gfg fg f gf fg fg fg fg ";
@@ -6,7 +7,13 @@ export default function ClinicCard() {
     <div className=" rounded-md p-4 bg-slate-50 dark:bg-gray-800 flex flex-col  gap-4">
       <div className="w-full flex justify-between items-center gap-3">
         <div className="flex items-center gap-3">
-          <Avatar className="rounded-lg" width="50px" height="50px" />
+          <Avatar
+            src={profile}
+            alt="profile"
+            className="rounded-lg"
+            width="50px"
+            height="50px"
+          />
 
           <h1>{name.length > 35 ? `${name.slice(0, 35)}...` : name}</h1>
         </div>

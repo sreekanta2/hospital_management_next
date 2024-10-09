@@ -1,4 +1,5 @@
 "use client";
+import logo from "@/assets/logo.png";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   NavigationMenu,
@@ -11,11 +12,10 @@ import {
 } from "@/components/ui/navigation-menu";
 import { headerLinks } from "@/constant";
 import { cn } from "@/lib/utils";
+import { Lock, UserRound } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import logo from "@/assets/logo.png";
-import { Lock, UserRound } from "lucide-react";
 
 const links = headerLinks("1");
 

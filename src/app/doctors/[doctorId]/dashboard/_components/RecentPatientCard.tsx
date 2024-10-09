@@ -1,11 +1,18 @@
 import Avatar from "@/components/Avatar";
+import { profile } from "@/images";
 import Link from "next/link";
 
 export default function RecentPatientCard() {
   return (
     <div className="w-full flex  flex-col bg-slate-50  py-3 px-4 rounded-md dark:bg-gray-800  ">
       <div className="flex gap-3 items-start">
-        <Avatar className="rounded-lg" width="80px" height="80px" />
+        <Avatar
+          src={profile}
+          alt="profile"
+          className="rounded-lg"
+          width="80px"
+          height="80px"
+        />
         <Link href={`#`} className="flex flex-col items-start">
           <h1 className="text-sm font-semibold">Jhon Doe</h1>
           <p className="text-gray-500">1234567890</p>

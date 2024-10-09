@@ -29,43 +29,59 @@ export const headerLinks = (id: string) => [
     sublinks: [
       {
         title: "Dashboard",
-        href: `/doctor/${id}/dashboard`,
+        href: `/doctors/${id}/dashboard`,
+      },
+      {
+        title: "Requests",
+        href: `/doctors/${id}/requests`,
       },
       {
         title: "Appointments",
-        href: `/doctor/${id}/appointments`,
+        href: `/doctors/${id}/appointments`,
+      },
+      {
+        title: "Available Timings",
+        href: `/doctors/${id}/available-timings`,
       },
       {
         title: "My Patients",
-        href: `/doctor/${id}/patients`,
+        href: `/doctors/${id}/patients`,
       },
       {
-        title: "Schedule Timings",
-        href: `/doctor/${id}/schedule`,
-      },
-      {
-        title: "Accounts",
-        href: `/doctor/${id}/accounts`,
+        title: "Specialties & Services",
+        href: `/doctors/${id}/specialties-services`,
       },
       {
         title: "Reviews",
-        href: `/doctor/${id}/reviews`,
+        href: `/doctors/${id}/reviews`,
+      },
+      {
+        title: "Accounts",
+        href: `/doctors/${id}/accounts`,
+      },
+      {
+        title: "Invoices",
+        href: `/doctors/${id}/invoices`,
+      },
+      {
+        title: "Payout Settings",
+        href: `/doctors/${id}/payout-settings`,
       },
       {
         title: "Messages",
         href: "/conversation",
       },
       {
-        title: "Profile Setting",
-        href: `/doctor/${id}/profile-setting`,
+        title: "Profile Settings",
+        href: `/doctors/${id}/profile-settings`,
       },
       {
         title: "Social Media",
-        href: `/doctor/${id}/social-media`,
+        href: `/doctors/${id}/social-media`,
       },
       {
         title: "Change Password",
-        href: `/doctor/${id}/change-password`,
+        href: `/doctors/${id}/change-password`,
       },
       {
         title: "Logout",
@@ -79,11 +95,11 @@ export const headerLinks = (id: string) => [
     sublinks: [
       {
         title: "Dashboard",
-        href: `/patient/${id}/dashboard`,
+        href: `/patients/${id}/dashboard`,
       },
       {
         title: "Favorite",
-        href: `/patient/${id}/favorite`,
+        href: `/patients/${id}/favorite`,
       },
       {
         title: "Messages",
@@ -91,23 +107,23 @@ export const headerLinks = (id: string) => [
       },
       {
         title: "Account",
-        href: `/patient/${id}/accounts`,
+        href: `/patients/${id}/accounts`,
       },
       {
         title: "Order",
-        href: `/patient/${id}/orders`,
+        href: `/patients/${id}/orders`,
       },
       {
         title: "Add Medical Records",
-        href: `/patient/${id}/addmedical-records`,
+        href: `/patients/${id}/addmedical-records`,
       },
       {
         title: "Profile Setting",
-        href: `/patient/${id}/profile-setting`,
+        href: `/patients/${id}/profile-setting`,
       },
       {
         title: "Change Password",
-        href: `/patient/${id}/change-password`,
+        href: `/patients/${id}/change-password`,
       },
       {
         title: "Logout",

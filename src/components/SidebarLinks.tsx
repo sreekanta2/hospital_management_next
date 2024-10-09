@@ -19,7 +19,7 @@ export default function SideBarLinks({ baseUrl, options }: SideBarLinksProps) {
   const pathname = usePathname();
   const params = useParams();
   const patientId = params.patientId;
-
+  console.log(baseUrl);
   return (
     <div className="col-span-1 border rounded-md w-full mx-auto mb-10 lg:mb-0">
       <div className="w-full flex justify-center ">
