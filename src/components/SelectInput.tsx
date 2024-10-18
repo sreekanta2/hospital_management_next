@@ -1,97 +1,73 @@
-import {
-  Control,
-  Controller,
-  FieldValues,
-  Path,
-  PathValue,
-} from "react-hook-form";
+"use client";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "@/components/ui/select";
+import { Controller } from "react-hook-form";
 
-// Define the type for the option prop
-type Option = {
-  value: string;
+interface SelectOption {
   label: string;
-};
-
-// Define the props for the SelectInput component
-interface SelectInputProps<T extends FieldValues> {
-  name: Path<T>; // Path to a key in the form values object
-  control: Control<T>;
-  options: Option[];
-  defaultValue?: PathValue<T, Path<T>>; // Ensure defaultValue is compatible
-  label?: string;
-  placeholder?: string;
-  rules?: Record<string, any>;
-  onChange?: (value: string) => void;
-  align?: string;
+  id: number;
 }
 
-export default function SelectInput<T extends FieldValues>({
+interface SelectInputProps {
+  name: string;
+  control: any;
+  label?: string;
+  options: SelectOption[];
+  placeholder?: string;
+  error?: string;
+  isRequired?: boolean;
+  className?: string;
+}
+
+const SelectInput: React.FC<SelectInputProps> = ({
   name,
   control,
-  options,
-  defaultValue,
   label,
-  placeholder,
-  rules,
-  onChange,
-}: SelectInputProps<T>) {
+  options,
+  placeholder = "Select an option",
+  error,
+  isRequired = false,
+  className,
+}) => {
   return (
-    <div>
+    <div className={className}>
       {label && (
-        <label
-          htmlFor={name as string}
-          className="mb-2 block text-sm font-medium"
-        >
+        <label htmlFor={name} className="mb-2 flex gap-1 items-center">
           {label}
+          {isRequired && <span className="text-red-500">*</span>}{" "}
         </label>
       )}
-
       <Controller
         name={name}
         control={control}
-        defaultValue={defaultValue}
-        rules={rules}
-        render={({ field, fieldState: { error } }) => (
+        render={({ field }) => (
           <>
             <Select
-              onValueChange={(value: string) => {
-                field.onChange(value); // Update react-hook-form value
-                if (onChange) onChange(value); // Call external onChange if provided
-              }}
-              value={field.value || placeholder || ""} // Handle default and selected value
+              onValueChange={(value) => field.onChange(Number(value))}
+              value={field.value ? String(field.value) : ""}
             >
-              <SelectTrigger className="w-full">
-                <SelectValue>
-                  {field.value
-                    ? options.find((option) => option.value === field.value)
-                        ?.label
-                    : placeholder}{" "}
-                  {/* Display placeholder if no value is selected */}
-                </SelectValue>
+              <SelectTrigger className={error ? "ring-1 ring-red-500" : ""}>
+                <SelectValue placeholder={placeholder} />
               </SelectTrigger>
-              <SelectContent align={"end"}>
+              <SelectContent>
                 {options.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
+                  <SelectItem key={option?.id} value={option?.id?.toString()}>
                     {option.label}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
-
-            {/* Error Message */}
-            {error && (
-              <p className="mt-1 text-sm text-red-500">{error.message}</p>
-            )}
+            {error && <p className="text-red-600 text-sm">{error}</p>}
           </>
         )}
       />
     </div>
   );
-}
+};
+
+export default SelectInput;

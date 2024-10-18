@@ -1,6 +1,5 @@
-"use client";
 import Avatar from "@/components/Avatar";
-import { CustomSelect } from "@/components/CustomSelect";
+
 import { profile } from "@/images";
 import {
   ClipboardPlus,
@@ -11,14 +10,11 @@ import {
   UserPen,
 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 import { FaTemperatureHigh } from "react-icons/fa";
+import HealthaRecordsFilteringForm from "./HealthaRecordsFilteringForm";
 import { PieCharts } from "./PieCharts";
 
 export default function HealthRecords() {
-  const [selectedFruit, setSelectedFruit] = useState<string | undefined>(
-    undefined
-  );
   return (
     <div className="grid  lg:grid  lg:grid-cols-3 gap-4">
       <div className="w-full border lg:col-span-2 px-4 py-6 rounded-md">
@@ -27,18 +23,7 @@ export default function HealthRecords() {
             Health Records
           </h1>
           <div>
-            <CustomSelect
-              label="Select a fruit"
-              options={[
-                { label: "Apple", value: "apple" },
-                { label: "Banana", value: "banana" },
-                { label: "Blueberry", value: "blueberry" },
-                { label: "Grapes", value: "grapes" },
-                { label: "Pineapple", value: "pineapple" },
-              ]}
-              value={selectedFruit} // Controlled value from local state
-              onChange={setSelectedFruit} // Handler to update state on selection
-            />
+            <HealthaRecordsFilteringForm />
           </div>
         </div>
         <hr />

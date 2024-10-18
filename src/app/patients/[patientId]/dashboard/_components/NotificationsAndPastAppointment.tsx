@@ -1,4 +1,3 @@
-import { CustomSelect } from "@/components/CustomSelect";
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import NotificationCard from "../../../../_components/NotificationCard";
@@ -31,7 +30,7 @@ export default function NotificationsAndPastAppointment() {
         <div className="md:col-span-3 border rounded-md p-4">
           <div className="grid  grid-cols-3 gap-4">
             <h1 className="text-xl font-semibold text-gray-600 ">Analytics</h1>
-            <CustomSelect
+            {/* <CustomSelect
               label="Select a fruit"
               options={[
                 { label: "Apple", value: "apple" },
@@ -51,7 +50,7 @@ export default function NotificationsAndPastAppointment() {
                 { label: "Grapes", value: "grapes" },
                 { label: "Pineapple", value: "pineapple" },
               ]}
-            />
+            /> */}
           </div>
           <hr className="my-4" />
 

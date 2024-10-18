@@ -1,6 +1,5 @@
 "use client";
 import { SubmitHandler, useForm } from "react-hook-form";
-import SelectInput from "./SelectInput";
 
 type TitleSelectcomponentProps = {
   title: string;
@@ -28,12 +27,6 @@ export default function TitleSelectcomponent({
   return (
     <div className="flex justify-between border-b pb-2   ">
       {title && <h1>{title}</h1>}
-      <SelectInput
-        name="option"
-        options={genderOptions}
-        control={control}
-        placeholder="Gender"
-      />
     </div>
   );
 }

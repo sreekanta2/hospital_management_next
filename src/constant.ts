@@ -45,7 +45,7 @@ export const headerLinks = (id: string) => [
       },
       {
         title: "My Patients",
-        href: `/doctors/${id}/patients`,
+        href: `/doctors/${id}/my-patients`,
       },
       {
         title: "Specialties & Services",

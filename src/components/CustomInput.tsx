@@ -1,93 +1,63 @@
+"use client";
+import { Input } from "@/components/ui/input"; // Import Shadcn UI's Input component
 import React from "react";
-import { FieldError, UseFormRegister } from "react-hook-form";
-import { Input } from "./ui/input";
-// Utility function to handle conditional class names
+import { Controller } from "react-hook-form";
 
-type InputProps = {
-  label: string;
+interface InputComponentProps {
   name: string;
-  register: UseFormRegister<any>;
-  error?: FieldError;
-  type?: string;
+  control: any; // React Hook Form control
+  label: string;
   placeholder?: string;
-};
+  error?: string;
+  type?: "text" | "number"; // Accepts either 'text' or 'number'
+  isRequired?: boolean;
+  className?: string;
+}
 
-const CustomInput: React.FC<InputProps> = ({
-  label,
+const InputComponent: React.FC<InputComponentProps> = ({
   name,
-  register,
+  control,
+  label,
+  placeholder = "",
   error,
   type = "text",
-  placeholder,
+  isRequired = false,
+  className,
 }) => {
   return (
-    <div className="flex flex-col space-y-1">
-      {
-        <label
-          htmlFor={name}
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
-          {label}
-        </label>
-      }
-      <Input type={type} placeholder={placeholder} {...register(name)} />
-      {error && <p className="text-sm text-red-600">{error.message}</p>}
+    <div className={`mb-4 ${className}`}>
+      <label htmlFor={name} className="mb-2 flex gap-1 items-center">
+        {label}
+        {isRequired && <span className="text-red-500">*</span>}{" "}
+        {/* Show star only if isRequired is true */}
+      </label>
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => (
+          <>
+            <Input
+              {...field}
+              id={name}
+              type={type}
+              placeholder={placeholder}
+              className={`mt-1 block w-full rounded-md border ${
+                error ? "border-red-600" : "border-gray-300"
+              } p-2 ${className}`}
+              onChange={(e) => {
+                // Handle number input conversion
+                const value =
+                  type === "number" ? Number(e.target.value) : e.target.value;
+                field.onChange(value); // Pass the converted value to field.onChange
+              }}
+              value={field.value || ""} // Handle controlled value
+            />
+            {error && <p className="text-red-600 text-sm">{error}</p>}
+          </>
+        )}
+      />
     </div>
   );
 };
 
-export default CustomInput;
-
-// import { useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { z } from "zod";
-// import Input from "./Input";
-
-// const schema = z.object({
-//   firstName: z.string().min(1, "First Name is required"),
-//   email: z.string().email("Invalid email address"),
-// });
-
-// type FormValues = z.infer<typeof schema>;
-
-// const MyForm = () => {
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm<FormValues>({
-//     resolver: zodResolver(schema),
-//   });
-
-//   const onSubmit = (data: FormValues) => {
-//     console.log(data);
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-//       <Input
-//         label="First Name"
-//         name="firstName"
-//         register={register}
-//         error={errors.firstName}
-//         placeholder="Enter your first name"
-//       />
-//       <Input
-//         label="Email"
-//         name="email"
-//         register={register}
-//         error={errors.email}
-//         type="email"
-//         placeholder="Enter your email"
-//       />
-//       <button
-//         type="submit"
-//         className="px-4 py-2 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-900"
-//       >
-//         Submit
-//       </button>
-//     </form>
-//   );
-// };
-
-// export default MyForm;
+export default InputComponent;

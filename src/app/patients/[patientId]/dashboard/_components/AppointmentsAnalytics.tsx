@@ -1,22 +1,11 @@
-"use client";
-
-import {
-  Calendar,
-  CalendarDays,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
-import React, { useState } from "react";
+import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 
 import AppointmentCard from "./AppointmentCard";
 
-import { CustomSelect } from "@/components/CustomSelect";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import AppointmentFilterForm from "./AppointmentFilterForm";
 
 export default function AppointmentsAnalytics() {
-  const [selectedFruit, setSelectedFruit] = useState<string | undefined>(
-    undefined
-  );
   return (
     <div className="grid h-fit md:grid-cols-5 gap-4   ">
       <div className="w-full h-fit md:col-span-2 border rounded-md p-4">
@@ -58,31 +47,7 @@ export default function AppointmentsAnalytics() {
         </div>
       </div>
       <div className="md:col-span-3 border rounded-md p-4 ">
-        <div className="grid  grid-cols-3 gap-4">
-          <h1 className="text-xl font-semibold text-gray-600 ">Analytics</h1>
-          <CustomSelect
-            label="Select a fruit"
-            options={[
-              { label: "Apple", value: "apple" },
-              { label: "Banana", value: "banana" },
-              { label: "Blueberry", value: "blueberry" },
-              { label: "Grapes", value: "grapes" },
-              { label: "Pineapple", value: "pineapple" },
-            ]}
-            value={selectedFruit} // Controlled value from local state
-            onChange={setSelectedFruit} // Handler to update state on selection
-          />
-          <CustomSelect
-            label="Select a fruit"
-            options={[
-              { label: "Apple", value: "apple" },
-              { label: "Banana", value: "banana" },
-              { label: "Blueberry", value: "blueberry" },
-              { label: "Grapes", value: "grapes" },
-              { label: "Pineapple", value: "pineapple" },
-            ]}
-          />
-        </div>
+        <AppointmentFilterForm />
         <hr className="mt-4" />
 
         <div>
