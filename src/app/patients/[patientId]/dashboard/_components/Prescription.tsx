@@ -8,7 +8,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { TabsContent } from "@/components/ui/tabs";
-import React from "react";
 import PrescriptionTable from "./PrescriptionTable";
 const headers = [" Date", "Name", "Created", "Action"];
 export default function Prescription() {
@@ -38,11 +37,7 @@ export default function Prescription() {
 
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      <PaginationComponent
-        currentPage={2}
-        totalPages={10}
-        baseUrl="/patients/2/dashboard"
-      />
+      <PaginationComponent currentPage={2} totalPages={10} />
     </TabsContent>
   );
 }

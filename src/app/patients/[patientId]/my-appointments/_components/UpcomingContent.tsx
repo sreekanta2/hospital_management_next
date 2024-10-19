@@ -1,7 +1,6 @@
-import React from "react";
-import AppointmentCard from "./AppointmentCard";
-import { TabsContent } from "@/components/ui/tabs";
 import PaginationComponent from "@/components/PaginationComponent";
+import { TabsContent } from "@/components/ui/tabs";
+import AppointmentCard from "./AppointmentCard";
 
 export default function UpcomingContent() {
   return (
@@ -21,11 +20,7 @@ export default function UpcomingContent() {
         <AppointmentCard />
       </div>
 
-      <PaginationComponent
-        currentPage={2}
-        totalPages={10}
-        baseUrl="/patients/2/my-appointment"
-      />
+      <PaginationComponent currentPage={2} totalPages={10} />
     </TabsContent>
   );
 }

@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import FileInput from "@/components/FileInput";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +15,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import FileInput from "@/components/ui/FileInput";
 import {
   Form,
   FormControl,
@@ -26,7 +26,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { File } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Define schema using zod
 const FormSchema = z.object({
@@ -41,7 +41,7 @@ const FormSchema = z.object({
 
 export function DependantsCreatedForm() {
   // State to hold the image preview URL
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [images, setImages] = useState<string[]>([]);
   // Initialize form with react-hook-form and zod
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -56,60 +56,11 @@ export function DependantsCreatedForm() {
 
   // Handle form submission
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("relationship", data.relationship);
-    formData.append("dob", data.dob);
-    formData.append("gender", data.gender);
-
-    if (data.uploadFile) {
-      formData.append("uploadFile", data.uploadFile);
-    }
-
+    console.log(data);
     // Submit formData as needed (e.g., send to API)
   }
 
   // Handle file change
-  const handleFileChange = (file: File | null) => {
-    // Reset the preview if no file is selected
-    if (!file) {
-      setImagePreview(null);
-      return;
-    }
-
-    // Validate file type
-    const validTypes = ["image/jpeg", "image/png", "image/svg+xml"];
-    const isValidType = validTypes.includes(file.type);
-
-    // Validate file size (3 MB = 3 * 1024 * 1024 bytes)
-    const isValidSize = file.size <= 2 * 1024 * 1024;
-
-    if (!isValidType) {
-      alert("Please upload a file of type: jpg, png, or svg.");
-      form.setValue("uploadFile", null); // Reset the file input
-      return;
-    }
-
-    if (!isValidSize) {
-      alert("Please upload a file smaller than 3 MB.");
-      form.setValue("uploadFile", null); // Reset the file input
-      return;
-    }
-
-    // If validation passes, update the form and set the image preview
-    form.setValue("uploadFile", file);
-    const previewUrl = URL.createObjectURL(file);
-    setImagePreview(previewUrl);
-  };
-
-  // Clean up the object URL when component unmounts
-  useEffect(() => {
-    return () => {
-      if (imagePreview) {
-        URL.revokeObjectURL(imagePreview);
-      }
-    };
-  }, [imagePreview]);
 
   return (
     <Dialog>
@@ -122,17 +73,20 @@ export function DependantsCreatedForm() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <DialogHeader>
                 <div className="flex gap-4">
-                  {imagePreview && (
-                    <ResponsiveImage
-                      src={imagePreview}
-                      width="80px"
-                      height="80px"
-                      alt="dependants profile image"
-                      className="rounded-md"
-                    />
-                  )}
+                  {images.length > 0 &&
+                    images.map((image, index) => (
+                      <div key={index}>
+                        <ResponsiveImage
+                          src={image}
+                          width="100px"
+                          height="100px"
+                          alt="dependants profile image"
+                          className="rounded-md"
+                        />
+                      </div>
+                    ))}
 
-                  {!imagePreview && (
+                  {images.length === 0 && (
                     <File size={75} className="border rounded-md p-4" />
                   )}
                   <div className="flex flex-col gap-2">
@@ -140,7 +94,7 @@ export function DependantsCreatedForm() {
                       Profile Image
                     </DialogTitle>
                     <div className="flex items-start gap-2">
-                      <FileInput onFileChange={handleFileChange} />
+                      <FileInput setImages={setImages} images={images} />
                     </div>
                   </div>
                 </div>

@@ -1,3 +1,4 @@
+import PaginationComponent from "@/components/PaginationComponent";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import {
   Table,
@@ -7,9 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { TabsContent } from "@/components/ui/tabs";
-import React from "react";
 import MedicalRecordsTable from "./MedicalRecordsTable";
-import PaginationComponent from "@/components/PaginationComponent";
 const headers = [
   "ID",
   " Date",
@@ -45,11 +44,7 @@ export default function MedicalRecords() {
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
 
-      <PaginationComponent
-        currentPage={2}
-        totalPages={10}
-        baseUrl="/patients/2/dashboard"
-      />
+      <PaginationComponent currentPage={2} totalPages={10} />
     </TabsContent>
   );
 }

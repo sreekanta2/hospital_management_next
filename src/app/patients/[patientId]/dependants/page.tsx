@@ -1,12 +1,9 @@
-import React from "react";
-import PatientsLayout from "../_components/PatientsLayout";
+import PaginationComponent from "@/components/PaginationComponent";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import PatientsLayout from "../_components/PatientsLayout";
 import DependantsCard from "./_components/DependantsCard";
-import PaginationComponent from "@/components/PaginationComponent";
 import { DependantsCreatedForm } from "./_components/DependantsCreatedForm";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function page() {
   return (
@@ -47,7 +44,7 @@ export default function page() {
           <DependantsCard />
           <DependantsCard />
         </div>
-        <PaginationComponent currentPage={1} totalPages={10} baseUrl="/" />
+        <PaginationComponent currentPage={1} totalPages={10} />
       </div>
     </PatientsLayout>
   );

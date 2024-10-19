@@ -31,7 +31,6 @@ export default function page() {
       <div>
         <SearchInput
           placeholder="Search for items..."
-          baseUrl={`/patient/1/invoices`}
           searchParamKey="q"
           debounceDelay={500}
           className="w-fit my-4"
@@ -96,11 +95,7 @@ export default function page() {
 
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      <PaginationComponent
-        currentPage={2}
-        totalPages={10}
-        baseUrl="/patient/2/invoice"
-      />
+      <PaginationComponent currentPage={2} totalPages={10} />
     </PatientsLayout>
   );
 }

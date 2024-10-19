@@ -53,11 +53,7 @@ export default function page() {
 
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
-        <PaginationComponent
-          currentPage={2}
-          totalPages={10}
-          baseUrl="/patients/2/dashboard"
-        />
+        <PaginationComponent currentPage={2} totalPages={10} />
       </div>
     </PatientsLayout>
   );

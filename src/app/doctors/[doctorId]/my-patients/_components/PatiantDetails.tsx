@@ -41,7 +41,7 @@ export default function PatientsListClient({
         <div>
           <div className="flex justify-between border-b pb-2">
             <h1 className="text-xl font-semibold">My Patients</h1>
-            <SearchInput baseUrl="/doctors/1/my-patients" searchParamKey="q" />
+            <SearchInput searchParamKey="q" />
           </div>
 
           <div className="flex gap-2 mt-4">
@@ -68,7 +68,7 @@ export default function PatientsListClient({
               />
             ))}
           </div>
-          <PaginationComponent currentPage={1} totalPages={20} baseUrl="1" />
+          <PaginationComponent currentPage={1} totalPages={20} />
         </div>
       )}
     </div>

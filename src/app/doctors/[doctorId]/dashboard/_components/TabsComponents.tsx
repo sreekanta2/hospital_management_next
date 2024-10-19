@@ -1,10 +1,10 @@
 "use client";
-import { TabsContent } from "@/components/ui/tabs";
-import React, { useState } from "react";
-import Table from "./Table";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import PaginationComponent from "@/components/PaginationComponent";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { TabsContent } from "@/components/ui/tabs";
+import { useState } from "react";
 import AppointmentsModal from "./AppointmentsModal";
+import Table from "./Table";
 
 interface TabsContentComponentProps {
   value: string;
@@ -55,7 +55,7 @@ export default function TabsContentComponent({
 
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      <PaginationComponent currentPage={1} totalPages={20} baseUrl="1" />
+      <PaginationComponent currentPage={1} totalPages={20} />
       <AppointmentsModal open={open} control={control} />
     </TabsContent>
   );

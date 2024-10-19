@@ -92,19 +92,19 @@ const ListItem = React.forwardRef<
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none   rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none ">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground transition duration-300 ease-out hover:translate-x-2 hover:text-[#1c89fd]">
-            {children}
-          </p>
-        </a>
+        <Link href={props.href || "#"} legacyBehavior passHref>
+          <NavigationMenuLink
+            className={cn(
+              "block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              className
+            )}
+          >
+            <div className="text-sm font-medium leading-none">{title}</div>
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground transition duration-300 ease-out hover:translate-x-2 hover:text-[#1c89fd]">
+              {children}
+            </p>
+          </NavigationMenuLink>
+        </Link>
       </NavigationMenuLink>
     </li>
   );

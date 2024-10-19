@@ -184,7 +184,6 @@ export default function page() {
               <div className="flex gap-4 justify-between items-center mt-4">
                 <SearchInput
                   placeholder="Search for items..."
-                  baseUrl={`/patient/1/medical-details`}
                   searchParamKey="q"
                   debounceDelay={500}
                   className="w-fit my-4"
@@ -255,11 +254,7 @@ export default function page() {
 
                 <ScrollBar orientation="horizontal" />
               </ScrollArea>
-              <PaginationComponent
-                currentPage={2}
-                totalPages={10}
-                baseUrl="/patient/2/medical-details"
-              />
+              <PaginationComponent currentPage={2} totalPages={10} />
             </div>
           </div>
         </div>

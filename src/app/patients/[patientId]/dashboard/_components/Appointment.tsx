@@ -1,3 +1,5 @@
+import PaginationComponent from "@/components/PaginationComponent";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import {
   Table,
   TableBody,
@@ -6,11 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { TabsContent } from "@/components/ui/tabs";
-import React from "react";
 import AppointmentTable from "./AppointmentTable";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import Image from "next/image";
-import PaginationComponent from "@/components/PaginationComponent";
 const headers = [
   "Doctor",
   "Appt Date",
@@ -50,11 +48,7 @@ export default function Appointment() {
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
 
-      <PaginationComponent
-        currentPage={2}
-        totalPages={10}
-        baseUrl="/patients/2/dashboard"
-      />
+      <PaginationComponent currentPage={2} totalPages={10} />
     </TabsContent>
   );
 }

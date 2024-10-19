@@ -1,7 +1,6 @@
-import React from "react";
+import PaginationComponent from "@/components/PaginationComponent";
 import DoctorLayout from "../_components/DoctorLayout";
 import AppointmentsCard from "./_components/AppointmentCard";
-import PaginationComponent from "@/components/PaginationComponent";
 
 export default function page() {
   return (
@@ -15,7 +14,7 @@ export default function page() {
           <AppointmentsCard />
           <AppointmentsCard />
         </div>
-        <PaginationComponent currentPage={1} totalPages={10} baseUrl="/" />
+        <PaginationComponent currentPage={1} totalPages={10} />
       </div>
     </DoctorLayout>
   );

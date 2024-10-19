@@ -1,18 +1,12 @@
 "use client";
 
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { z } from "zod";
 
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "@/components/ui/form";
+import FileInput from "@/components/FileInput";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -22,11 +16,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { File } from "lucide-react";
-import FileInput from "@/components/ui/FileInput";
-import ResponsiveImage from "@/components/ResponsiveImage";
 
 // Define schema using zod
 const FormSchema = z.object({
@@ -39,7 +39,7 @@ const FormSchema = z.object({
 });
 
 export function AddMedicalRecords() {
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [images, setImages] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -51,52 +51,7 @@ export function AddMedicalRecords() {
     },
   });
 
-  // Handle file change
-  const handleFileChange = (file: File | null) => {
-    if (!file) {
-      setImagePreview(null);
-      return;
-    }
-
-    const validTypes = ["image/jpeg", "image/png", "image/svg+xml"];
-    const isValidType = validTypes.includes(file.type);
-    const isValidSize = file.size <= 2 * 1024 * 1024;
-
-    if (!isValidType) {
-      alert("Please upload a file of type: jpg, png, or svg.");
-      form.setValue("uploadFile", null);
-      return;
-    }
-
-    if (!isValidSize) {
-      alert("Please upload a file smaller than 3 MB.");
-      form.setValue("uploadFile", null);
-      return;
-    }
-
-    form.setValue("uploadFile", file);
-    const previewUrl = URL.createObjectURL(file);
-    setImagePreview(previewUrl);
-  };
-
-  useEffect(() => {
-    return () => {
-      if (imagePreview) {
-        URL.revokeObjectURL(imagePreview);
-      }
-    };
-  }, [imagePreview]);
-
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    const formData = new FormData();
-    formData.append("textName", data.textName);
-    formData.append("hospitalName", data.hospitalName);
-    formData.append("date", data.date);
-
-    if (data.uploadFile) {
-      formData.append("uploadFile", data.uploadFile);
-    }
-
     // Submit formData (e.g., send to an API)
     console.log("Submitted data:", data);
   };
@@ -161,16 +116,19 @@ export function AddMedicalRecords() {
                 )}
               />
 
-              {imagePreview && (
-                <ResponsiveImage
-                  src={imagePreview}
-                  width="100%"
-                  height="200px"
-                  alt="file preview"
-                  className="rounded-md"
-                />
-              )}
-              {!imagePreview && (
+              {images.length > 0 &&
+                images.map((image, index) => (
+                  <div key={index}>
+                    <ResponsiveImage
+                      src={image}
+                      width="100%"
+                      height="200px"
+                      alt="file preview"
+                      className="rounded-md"
+                    />
+                  </div>
+                ))}
+              {images.length === 0 && (
                 <File size={75} className="border rounded-md p-4" />
               )}
               <DialogDescription>
@@ -178,7 +136,7 @@ export function AddMedicalRecords() {
                 svg.
               </DialogDescription>
               <div className="flex flex-col gap-2">
-                <FileInput onFileChange={handleFileChange} />
+                <FileInput setImages={setImages} images={images} />
               </div>
 
               {/* Submit Button */}

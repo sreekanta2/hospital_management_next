@@ -1,14 +1,14 @@
 import { Star, StarHalf } from "lucide-react";
 
 interface StarRatingProps {
-  rating: number; // The rating value as a floating-point number
+  rating: number;
 }
 
 const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
   // Round the rating to the nearest half
-  const fullStars = Math.floor(rating); // Number of full stars
-  const hasHalfStar = rating % 1 >= 0.5; // Check if there's a half-star
-  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0); // Remaining empty stars
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
     <div className=" ">

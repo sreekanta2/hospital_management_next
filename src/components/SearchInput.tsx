@@ -8,7 +8,6 @@ import { IoClose } from "react-icons/io5"; // For clear icon
 
 type SearchInputProps = {
   placeholder?: string;
-  baseUrl: string;
   searchParamKey: string;
   debounceDelay?: number;
   className?: string;
@@ -16,53 +15,59 @@ type SearchInputProps = {
 
 const SearchInput: React.FC<SearchInputProps> = ({
   placeholder = "Search...",
-  baseUrl,
   searchParamKey,
   debounceDelay = 300,
-  className = "", // Default debounce delay of 300ms
+  className = "",
 }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState<string>(
-    searchParams.get(searchParamKey) || ""
-  );
+  const initialSearchQuery = searchParams.get(searchParamKey) || "";
+  const [searchQuery, setSearchQuery] = useState<string>(initialSearchQuery);
 
   // Debounced search value
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
 
+  // Debounce effect for search query
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const handler = setTimeout(() => {
       setDebouncedSearchQuery(searchQuery);
     }, debounceDelay);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(handler);
+    };
   }, [searchQuery, debounceDelay]);
 
-  // Update URL when debounced value changes
+  // Update the URL when debouncedSearchQuery changes
   useEffect(() => {
     const newSearchParams = new URLSearchParams(searchParams.toString());
+
     if (debouncedSearchQuery) {
       newSearchParams.set(searchParamKey, debouncedSearchQuery);
     } else {
       newSearchParams.delete(searchParamKey);
     }
 
-    router.push(`${baseUrl}?${newSearchParams.toString()}`);
-  }, [debouncedSearchQuery, baseUrl, searchParamKey, searchParams, router]);
+    // Generate the updated URL and push it to the router
+    const newUrl = `?${newSearchParams.toString()}`;
+    router.push(newUrl);
+  }, [debouncedSearchQuery, searchParamKey, searchParams, router]);
 
+  // Handle search query input change
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 
+  // Clear the search query and update the URL
   const clearSearch = () => {
     setSearchQuery("");
     const newSearchParams = new URLSearchParams(searchParams.toString());
     newSearchParams.delete(searchParamKey);
-    router.push(`${baseUrl}?${newSearchParams.toString()}`);
+    router.push(`?${newSearchParams.toString()}`);
   };
 
   return (
-    <div className={`relative flex items-center  max-w-full ${className}`}>
+    <div className={`relative flex items-center max-w-full ${className}`}>
       {/* Prefix: Search Icon */}
       <span className="absolute left-3 text-gray-500">
         <FiSearch />

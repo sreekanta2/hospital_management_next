@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TabsContent } from "@/components/ui/tabs";
-import React from "react";
-import ReviewCard from "./ReviewCard";
+import ReviewCard from "../reviews/_components/ReviewCard";
 
 export default function Review() {
   const review = [

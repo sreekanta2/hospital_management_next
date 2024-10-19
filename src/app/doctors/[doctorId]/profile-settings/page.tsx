@@ -1,7 +1,7 @@
 "use client";
 import InputComponent from "@/components/CustomInput";
 import SelectInput from "@/components/SelectInput";
-import { profile } from "@/images";
+import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
@@ -103,13 +103,14 @@ export default function ProfileSetting() {
         className="flex flex-col gap-4 px-6"
       >
         <div className="border rounded-md px-4 py-4">
-          <h1 className="mt-8 text-xl font-semibold text-gray-700 mb-4">
+          <h1 className="mt-2 text-xl font-semibold text-gray-700 mb-4">
             Basic Information
           </h1>
+          <hr className="mb-4" />
           <div className="flex gap-6 pb-4 flex-col md:flex-row">
             <div>
               <Image
-                src={profile}
+                src={"/uploads/1729273301471-d1qh1r97.svg"}
                 width={120}
                 height={120}
                 className="relative z-10"
@@ -248,9 +249,9 @@ export default function ProfileSetting() {
         </div>
 
         <div className="flex justify-end">
-          <button type="submit" className="bg-blue-500 text-white">
+          <Button type="submit" className="bg-blue-500 text-white">
             Save
-          </button>
+          </Button>
         </div>
       </form>
     </DoctorLayout>

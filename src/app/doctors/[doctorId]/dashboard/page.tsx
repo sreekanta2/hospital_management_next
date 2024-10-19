@@ -80,7 +80,6 @@ export default function Page() {
                 totalPages={10}
                 initialLimit={5}
                 currentPage={1}
-                baseUrl="/"
               />
             </div>
           </div>
@@ -202,7 +201,6 @@ export default function Page() {
                   totalPages={10}
                   initialLimit={5}
                   currentPage={1}
-                  baseUrl="/"
                 />
               </div>
             </div>

@@ -1,8 +1,6 @@
-import React from "react";
-import PatientsLayout from "../_components/PatientsLayout";
-import DoctorCard from "@/app/doctors/_components/DoctorCard";
-import FavouriteDoctorCard from "./_components/FavouriteDoctorCard";
 import PaginationComponent from "@/components/PaginationComponent";
+import PatientsLayout from "../_components/PatientsLayout";
+import FavouriteDoctorCard from "./_components/FavouriteDoctorCard";
 
 export default function page() {
   return (
@@ -13,7 +11,7 @@ export default function page() {
             <FavouriteDoctorCard key={index} />
           ))}
         </div>
-        <PaginationComponent currentPage={1} totalPages={10} baseUrl="/" />
+        <PaginationComponent currentPage={1} totalPages={10} />
       </div>
     </PatientsLayout>
   );

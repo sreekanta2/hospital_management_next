@@ -15,14 +15,12 @@ import { useState } from "react";
 interface PaginationComponentProps {
   currentPage: number;
   totalPages: number;
-  baseUrl: string;
   initialLimit?: number; // optional, with default value
 }
 
 export default function PaginationComponent({
   currentPage,
   totalPages,
-  baseUrl,
   initialLimit = 10, // default limit if not provided
 }: PaginationComponentProps) {
   const router = useRouter();
@@ -30,12 +28,14 @@ export default function PaginationComponent({
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
-      // Construct URL with dynamic query parameters
-      const queryParams = new URLSearchParams();
+      // Construct URL dynamically from the current location
+      const queryParams = new URLSearchParams(window.location.search);
       queryParams.set("page", page.toString());
       queryParams.set("limit", limit.toString());
 
-      router.push(`${baseUrl}?${queryParams.toString()}`);
+      const newUrl = `${window.location.pathname}?${queryParams.toString()}`;
+
+      router.push(newUrl);
     }
   };
 
