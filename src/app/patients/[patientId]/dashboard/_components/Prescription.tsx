@@ -13,7 +13,6 @@ const headers = [" Date", "Name", "Created", "Action"];
 export default function Prescription() {
   return (
     <TabsContent value="prescription">
-      {" "}
       <ScrollArea className="w-full whitespace-nowrap rounded-md ">
         <Table className="border rounded-md">
           <TableHeader>

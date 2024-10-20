@@ -1,7 +1,6 @@
 import SideBarLinks from "@/components/SidebarLinks";
 import { ReactNode } from "react";
 import { patientSidebarOptions } from "../../_components/constant";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function PatientsLayout({
   children, // This will include the child pages (appointments, reviews, etc.)
@@ -12,7 +11,7 @@ export default function PatientsLayout({
     <div className="flex flex-col lg:flex-row min-h-screen">
       {/* Sidebar Section */}
       <div className="lg:w-1/3 px-4 lg:sticky lg:top-0 lg:self-start">
-        <SideBarLinks options={patientSidebarOptions} baseUrl="patient" />
+        <SideBarLinks options={patientSidebarOptions} baseUrl="patients" />
       </div>
 
       {/* Main Content Section */}
