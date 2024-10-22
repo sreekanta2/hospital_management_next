@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import MainMenu from "@/components/header/MainMenu";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";

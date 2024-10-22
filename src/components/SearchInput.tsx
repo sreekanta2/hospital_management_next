@@ -67,9 +67,11 @@ const SearchInput: React.FC<SearchInputProps> = ({
   };
 
   return (
-    <div className={`relative flex items-center max-w-full ${className}`}>
+    <div
+      className={`relative flex items-center w-full  px-2 bg-slate-200 dark:bg-gray-800  ${className} `}
+    >
       {/* Prefix: Search Icon */}
-      <span className="absolute left-3 text-gray-500">
+      <span className="   text-gray-500">
         <FiSearch />
       </span>
 
@@ -79,7 +81,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
         value={searchQuery}
         onChange={handleSearchChange}
         placeholder={placeholder}
-        className="pl-10 pr-10 w-full"
+        className="w-full  "
       />
 
       {/* Suffix: Clear Icon */}
